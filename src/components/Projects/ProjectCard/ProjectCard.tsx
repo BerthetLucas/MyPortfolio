@@ -25,7 +25,10 @@ export const ProjectCard = ({
   const { isMobile } = useIsMobile();
 
   return (
-    <a href={`/projectDetails/${projectId}`} className="block w-full max-w-3xl">
+    <a
+      href={`/project-details/${projectId}`}
+      className="block w-full max-w-3xl"
+    >
       <Card className="w-full transition-all duration-300 hover:shadow-lg md:flex md:flex-row hover:grayscale-0 hover:scale-102 cursor-pointer">
         <div className="flex flex-1 flex-col justify-between gap-2">
           <CardHeader className="pt-6">

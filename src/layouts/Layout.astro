@@ -2,6 +2,7 @@
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import {ClientRouter} from 'astro:transitions';
 import '../styles/global.css';
 ---
 <!doctype html>
@@ -16,6 +17,7 @@ import '../styles/global.css';
 	</head>
 	<body>
 		<ThemeProvider client:load>
+			<ClientRouter />
 			<slot />
 			<Footer />
 		</ThemeProvider>
