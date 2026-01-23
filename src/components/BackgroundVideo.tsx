@@ -30,7 +30,9 @@ export const BackgroundVideo = () => {
       loop
       muted
       playsInline
-      className="w-full h-full object-cover opacity-20 absolute top-0 left-0 z-0"
+      className={`w-full h-full object-cover opacity-20 absolute top-0 left-0 z-0 ${
+        isDark ? 'opacity-5' : 'opacity-20'
+      }`}
     />
   );
 };

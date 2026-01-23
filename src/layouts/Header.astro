@@ -2,14 +2,10 @@
 import { TypographyH1 } from '@/components/Typographie/TypographieH1';
 import { TypographyP } from '@/components/Typographie/TypographieP';
 import { Button } from '@/components/ui/button';
-import { MotionHeader } from '@/components/MotionComponents/MotionHeader';
 import { BackgroundVideo } from '@/components/BackgroundVideo';
 ---
-<MotionHeader
-      client:load
-      delay={0.2}
-      className="flex flex-col items-center justify-center h-screen mb-10 md:gap-20 gap-16 "
-    >
+
+    <section transition:animate="fade" class="flex flex-col items-center justify-center h-screen mb-10 md:gap-20 gap-16 ">
       <div class="flex flex-col items-center justify-center gap-5">
         <TypographyH1 className="text-5xl md:text-8xl z-10">
           Lucas Berthet
@@ -21,10 +17,10 @@ import { BackgroundVideo } from '@/components/BackgroundVideo';
 
       <div class="flex flex-col items-center justify-center gap-5 w-full md:flex-row md:gap-0 z-10">
         <a href="#tabs-toggle" class="flex justify-center">
-          <Button client:load variant="default" size="lg">
+          <Button client:load variant="default" size="lg" className="text-lg">
             Découvrez mes projets !
           </Button>
         </a>
       </div>
       <BackgroundVideo client:load />
-    </MotionHeader>
+      </section>
