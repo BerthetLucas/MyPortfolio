@@ -1,46 +1,166 @@
-# Astro Starter Kit: Basics
+# 🚀 Portfolio Lucas Berthet
 
-```sh
-pnpm create astro@latest -- --template basics
+Voici mon portfolio ! Je l'ai construit avec **Astro** et **React**. Ce projet présente mes différents projets, compétences.
+
+## ✨ Fonctionnalités
+
+- 🎨 **Interface** avec support du mode sombre/clair
+- 📱 **Design responsive** adapté à tous les écrans
+- 🎬 **Animations fluides** avec Motion et les `<ClientRouter />` d'Astro
+- 🎯 **Navigation par onglets** entre projets et contact
+- 📧 **Formulaire de contact** fonctionnel avec EmailJS
+- ⚡ **Optimisé** grâce à Astro
+
+## 🛠️ Technologies utilisées
+
+### Core
+
+- **[Astro](https://astro.build/)** - Framework web moderne et performant
+- **[React](https://react.dev/)** - Bibliothèque UI pour les composants interactifs
+- **[TypeScript](https://www.typescriptlang.org/)** - Typage statique pour JavaScript
+
+### Styling
+
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utility-first
+- **[Radix UI](https://www.radix-ui.com/)** - Composants UI accessibles et personnalisables
+  - Tabs, Avatar, Aspect Ratio, Label, Tooltip
+- **[Lucide React](https://lucide.dev/)** - Icônes modernes
+
+### Animations & Interactions
+
+- **[Motion](https://motion.dev/)** (Framer Motion) - Bibliothèque d'animations
+- **[next-themes](https://github.com/pacocoursey/next-themes)** - Gestion du thème sombre/clair
+
+### Formulaires & Notifications
+
+- **[EmailJS](https://www.emailjs.com/)** - Envoi d'emails depuis le frontend
+- **[Sonner](https://sonner.emilkowal.ski/)** - Système de notifications toast
+
+### Outils & Utilitaires
+
+- **[class-variance-authority](https://cva.style/)** - Gestion des variantes de classes
+- **[clsx](https://github.com/lukeed/clsx)** & **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Utilitaires pour les classes CSS
+- **[dotenv](https://github.com/motdotla/dotenv)** - Gestion des variables d'environnement
+
+## 📁 Structure du projet
+
+```
+portfolioLucasBerthet/
+├── .github/
+│   └── dependabot.yml          # Configuration Dependabot
+├── public/                      # Assets statiques
+│   ├── favicon.svg
+│   └── *.png                    # Images des projets
+├── src/
+│   ├── assets/                  # Assets source
+│   │   ├── *.png, *.jpeg       # Images
+│   │   └── *.mp4                # Vidéos de fond
+│   ├── components/              # Composants React
+│   │   ├── BackgroundVideo.tsx  # Composant vidéo de fond
+│   │   ├── Contact/             # Composants du formulaire de contact
+│   │   │   ├── ContactForm.tsx
+│   │   │   ├── ContactText.tsx
+│   │   │   ├── EmailInput.tsx
+│   │   │   └── MessageInput.tsx
+│   │   ├── Icon/                # Icônes personnalisées
+│   │   │   ├── ArrowLeftIcon.tsx
+│   │   │   ├── GitHubIcon.tsx
+│   │   │   └── LinkedinIcon.tsx
+│   │   ├── MotionComponents/    # Composants avec animations
+│   │   │   ├── MotionDiv.tsx
+│   │   │   ├── MotionHeader.tsx
+│   │   │   ├── MotionMain.tsx
+│   │   │   └── MotionSection.tsx
+│   │   ├── ProjectDetails/      # Composants de détails de projet
+│   │   │   ├── BackButton.tsx
+│   │   │   ├── ProjectDetails.tsx
+│   │   │   ├── SkillsCard.tsx
+│   │   │   └── TechItems.tsx
+│   │   ├── Projects/            # Composants de liste de projets
+│   │   │   ├── ProjectCard/
+│   │   │   │   ├── ProjectCard.tsx
+│   │   │   │   └── ProjectCardFooter.tsx
+│   │   │   └── ProjectContainer.tsx
+│   │   ├── Typographie/         # Composants typographiques
+│   │   │   ├── TypographieH1.tsx
+│   │   │   └── TypographieP.tsx
+│   │   ├── ui/                  # Composants UI (shadcn/ui style)
+│   │   │   ├── aspect-ratio.tsx
+│   │   │   ├── avatar.tsx
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   ├── sonner.tsx
+│   │   │   ├── spinner.tsx
+│   │   │   ├── tabs.tsx
+│   │   │   └── textarea.tsx
+│   │   ├── TabsToggle.tsx       # Composant principal de navigation
+│   │   └── ThemeProvider.tsx    # Provider pour le thème
+│   ├── config/
+│   │   └── env.ts               # Configuration des variables d'environnement
+│   ├── data/
+│   │   └── projects.json        # Données des projets
+│   ├── hooks/
+│   │   └── use-is-mobile.ts     # Hook pour détecter mobile
+│   ├── layouts/                 # Layouts Astro
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   └── Layout.astro
+│   ├── lib/
+│   │   └── utils.ts             # Utilitaires (cn, etc.)
+│   ├── pages/                   # Pages Astro
+│   │   ├── index.astro          # Page d'accueil
+│   │   └── project-details/
+│   │       └── [id].astro       # Page dynamique de détails
+│   └── styles/
+│       └── global.css           # Styles globaux
+├── astro.config.mjs             # Configuration Astro
+├── components.json              # Configuration shadcn/ui
+├── package.json                 # Dépendances
+├── tsconfig.json                # Configuration TypeScript
+└── .prettierrc                  # Configuration Prettier
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚦 Commandes disponibles
 
-## 🚀 Project Structure
+```bash
+# Installation des dépendances
+pnpm install
 
-Inside of your Astro project, you'll see the following folders and files:
+# Démarrage du serveur de développement
+pnpm dev
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+# Build de production
+pnpm build
+
+# Prévisualisation du build de production
+pnpm preview
+
+# Commandes Astro supplémentaires
+pnpm astro -- --help
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🎯 Pages
 
-## 🧞 Commands
+- **`/`** - Page d'accueil avec onglets Projets et Contact
+- **`/project-details/[id]`** - Page de détails d'un projet spécifique
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 📝 Notes
 
-## 👀 Want to learn more?
+- Le projet utilise **pnpm** comme gestionnaire de paquets
+- Les composants React sont marqués avec `client:load` pour l'hydratation
+- Les transitions de page sont gérées par Astro Transitions
+- Le design est entièrement responsive avec Tailwind CSS
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🔗 Liens utiles
+
+- [Documentation Astro](https://docs.astro.build)
+- [Documentation React](https://react.dev)
+- [Documentation Tailwind CSS](https://tailwindcss.com/docs)
+- [Radix UI](https://www.radix-ui.com/docs)
+
+---
+
+Développé avec ❤️ 
