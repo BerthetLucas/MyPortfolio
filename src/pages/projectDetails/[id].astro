@@ -1,0 +1,79 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import projects from '@/data/projects.json';
+import { TypographyH1 } from '@/components/Typographie/TypographieH1';
+import { TypographyP } from '@/components/Typographie/TypographieP';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { MotionMain } from '@/components/MotionComponents/MotionMain';
+import { BackButton } from '@/components/ProjectDetails/BackButton';
+import { TechItems } from '@/components/ProjectDetails/TechItems';
+import { SkillsCard } from '@/components/ProjectDetails/SkillsCard';
+
+export function getStaticPaths() {
+  return projects.projects.map(project => ({
+    params: { id: project.id },
+  }));
+}
+
+const { id } = Astro.params;
+const project = projects.projects.find(p => p.id === id);
+
+if (!project) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout>
+  <MotionMain
+    client:load
+    delay={0.1}
+    className="flex flex-col items-center justify-around min-h-screen mx-5 gap-10 mt-5"
+  >
+    <div class="w-full flex items-center">
+      <BackButton client:load />
+      <div class="flex-1 flex justify-center flex-col items-center gap-5">
+        <TypographyH1 client:load>{project.title}</TypographyH1>
+        <TechItems client:load technologies={project.technologies} />
+      </div>
+    </div>
+    <div class="w-7/8 md:w-1/2 flex flex-col items-center gap-5">
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:grayscale-100 transition-all duration-300 inline-block"
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="eager"
+          fetchpriority="high"
+          class="rounded-lg"
+        />
+      </a>
+      <Button client:load asChild>
+        <a href={project.url} target="_blank" rel="noopener noreferrer">
+          Voir le projet
+        </a>
+      </Button>
+    </div>
+    <Card client:load className="w-7/8 md:w-1/2 py-4">
+      <CardHeader>
+        <CardTitle className="text-xl font-bold">Le projet</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-3">
+        <div>
+          <TypographyP client:load>{project.description_details}</TypographyP>
+        </div>
+        <h3 class="font-bold">Compétences</h3>
+        <div class="flex flex-wrap gap-2">
+          {project.skills.map(skill => (
+            <SkillsCard client:load skill={skill} />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+    <BackButton client:load showOnMobile />
+  </MotionMain>
+</Layout>

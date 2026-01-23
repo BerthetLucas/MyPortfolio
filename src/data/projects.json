@@ -1,0 +1,49 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "QuestHub",
+      "description": "API pour une plateforme de création de jeux de rôle en ligne.",
+      "description_details": "C'est mon plus gros projet back-end à ce jour. Il s'agit d'une API REST qui alimente un outils de gestion de jeux de rôle en ligne. J'ai beaucoup travaillé sur la partie authentification en faisant la connexion avec Firebase et j'ai travaillé sur l'élaboration de pattern et de pratiques communes dans ve repo collaboratif.",
+      "image": "/questHub.png",
+      "technologies": [
+        "https://img.icons8.com/?size=100&id=90519&format=png&color=000000",
+        "https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
+      ],
+      "url": "https://jdr-cli.vercel.app/home",
+      "skills": [
+        "Conception",
+        "Gestion de projet",
+        "Conteneurisation",
+        "Architecture"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Sharing Link Transformer",
+      "description": "Convertisseur de liens de partage entre Spotify et Deezer.",
+      "description_details": "J'ai fait ce projet tout simplement parce que j'en avais besoin. J'en ai profité pour monter en compétence principalement sur la mise en place d'un pipeline CI/CD et de tests end to end.",
+      "image": "/sharing-link-transformer.png",
+      "technologies": [
+        "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
+        "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/2/playwright-y50bnthygb3rvsppvkm9e.png/playwright-q55xzpenhgjsodksybst.png?_a=DATAg1AAZAA0",
+        "https://testing-library.com/img/octopus-128x128.png"
+      ],
+      "url": "https://sharing-links-transformer.vercel.app/",
+      "skills": ["CI/CD", "Test end to end", "TanStack Query", "Gestion d'état"]
+    },
+    {
+      "id": "3",
+      "title": "Clara Vidoni",
+      "description": "Site web de freelance.",
+      "description_details": "Ce site web a été crée sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul expace. J'ai réalisé la maquette du site, base sur laquelle nous avons ensuite pu itérer pour répondre à son besoin.",
+      "skills": ["Projet client", "Maquettage", "Solution sur mesure"],
+      "image": "/claravidoni.png",
+      "technologies": [
+        "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPznwv7OeqDgGjrlZfT28XyX4J9oJyZ9TYwg&s"
+      ],
+      "url": "https://claravidoni.com"
+    }
+  ]
+}
