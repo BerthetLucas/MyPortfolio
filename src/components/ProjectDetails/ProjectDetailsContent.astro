@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import { Button } from '../ui/button';
+
+interface Props {
+  url: string;
+  title: string;
+  image: ImageMetadata;
+}
+
+const { url, title, image } = Astro.props;
+---
+
+<div class="w-7/8 md:w-1/2 flex flex-col items-center gap-5">
+    <a
+      href={url}
+      rel="noopener noreferrer"
+      class="hover:grayscale-100 transition-all duration-300 inline-block"
+    >
+      <Image
+        src={image}
+        alt={title}
+        loading="eager"
+        fetchpriority="high"
+        class="rounded-lg"
+      />
+    </a>
+    <Button>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        Voir le projet
+      </a>
+    </Button>
+  </div>

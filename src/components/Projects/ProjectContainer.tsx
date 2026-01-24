@@ -1,6 +1,15 @@
 import { MotionSection } from '../MotionComponents/MotionSection';
 import { ProjectCard } from './ProjectCard/ProjectCard';
 import projects from '@/data/projects.json';
+import questHubImage from '@/assets/questHub.png';
+import sharingLinkImage from '@/assets/sharing-link-transformer.png';
+import claraVidoniImage from '@/assets/claravidoni.png';
+
+const projectImages: { [key: string]: string } = {
+  '1': questHubImage.src,
+  '2': sharingLinkImage.src,
+  '3': claraVidoniImage.src,
+};
 
 export const ProjectContainer = () => {
   return (
@@ -15,7 +24,7 @@ export const ProjectContainer = () => {
           title={project.title}
           description={project.description}
           technologies={project.technologies}
-          image={project.image}
+          image={projectImages[project.id]}
         />
       ))}
     </MotionSection>

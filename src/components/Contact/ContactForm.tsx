@@ -8,6 +8,7 @@ import { useRef, useState } from 'react';
 import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from '@/config/env';
 import { Spinner } from '../ui/spinner';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import meImage from '@/assets/me.jpeg';
 
 export const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -66,7 +67,7 @@ export const ContactForm = () => {
         </Button>
       </form>
       <Avatar className="w-50 md:w-60 mt-10">
-        <AvatarImage src="/me.jpeg" alt="" className="rounded-full" />
+        <AvatarImage src={meImage.src} alt="" className="rounded-full" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <Toaster richColors closeButton position="top-center" />

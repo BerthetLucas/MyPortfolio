@@ -18,7 +18,7 @@ export const BackButton = ({ showOnMobile }: BackButtonProps) => {
     return (
       <Button
         variant="outline"
-        size="xl"
+        size="lg"
         className="rounded-full h-24 w-24 md:hidden"
         onClick={handleBackClick}
       >
