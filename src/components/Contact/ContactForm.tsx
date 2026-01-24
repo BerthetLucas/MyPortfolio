@@ -9,6 +9,7 @@ import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from '@/config/env';
 import { Spinner } from '../ui/spinner';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import meImage from '@/assets/me.jpeg';
+import { MotionSection } from '../MotionComponents/MotionSection.tsx';
 
 export const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -52,7 +53,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <>
+    <MotionSection delay={0.1} className="w-full flex flex-col items-center">
       <ContactText />
       <form
         className="flex flex-col items-center justify-center w-full md:w-3/4 mt-10 gap-6 md:gap-8"
@@ -71,6 +72,6 @@ export const ContactForm = () => {
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <Toaster richColors closeButton position="top-center" />
-    </>
+    </MotionSection>
   );
 };

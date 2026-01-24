@@ -1,27 +1,78 @@
 ---
 import Footer from './Footer.astro';
-import Header from './Header.astro';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import {ClientRouter} from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import portfolioImage from '@/assets/portfolio.png';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Lucas Berthet - Portfolio',
+  description = 'Découvrez mes projets et mon expertise en développement web',
+} = Astro.props;
+
+const siteUrl = Astro.url.href;
+const imageUrl = new URL(portfolioImage.src, Astro.site).href;
 ---
+
 <!doctype html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio Lucas Berthet</title>
-	</head>
-	<body>
-		<ThemeProvider client:load>
-			<ClientRouter />
-			<slot />
-			<Footer />
-		</ThemeProvider>
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- SEO & Meta Tags -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={imageUrl} />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:locale" content="fr_FR" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={imageUrl} />
+  
+  <!-- Canonical -->
+  <link rel="canonical" href={siteUrl} />
+  
+  <script>
+    function applyStoredTheme() {
+      const theme = (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    applyStoredTheme();
+
+    document.addEventListener('astro:page-load', applyStoredTheme);
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e: MediaQueryListEvent) => {
+      document.documentElement.classList.toggle('dark', e.matches);
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    });
+  </script>
+</head>
+<body>
+<ClientRouter />
+<slot />
+<Footer />
+</body>
 </html>
 
 

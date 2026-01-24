@@ -1,0 +1,9 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<p class={`leading-7 not-first:mt-6 ${className}`}><slot /></p>
