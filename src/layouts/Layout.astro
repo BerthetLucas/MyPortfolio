@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.url.href;
-const imageUrl = portfolioImage.src; 
+const imageUrl = new URL(portfolioImage.src, Astro.site).href; 
 ---
 
 <!doctype html>
