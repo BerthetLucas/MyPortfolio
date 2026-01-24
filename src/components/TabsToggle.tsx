@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ContactForm } from './Contact/ContactForm';
 import { ProjectContainer } from './Projects/ProjectContainer';
 import { MotionSection } from './MotionComponents/MotionSection';
+import TypographyP from './Typographie/TypographieP.astro';
 
 export const TabsToggle = () => {
   return (
@@ -22,8 +23,7 @@ export const TabsToggle = () => {
         <ProjectContainer />
       </TabsContent>
       <TabsContent value="contact" className="flex flex-col w-3/4">
-       
-          <ContactForm />
+        <ContactForm />
       </TabsContent>
     </Tabs>
   );

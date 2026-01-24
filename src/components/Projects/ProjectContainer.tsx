@@ -27,6 +27,7 @@ export const ProjectContainer = () => {
           image={projectImages[project.id]}
         />
       ))}
+      <p>... et pleins d'autres idées en cours de développement !</p>
     </MotionSection>
   );
 };
