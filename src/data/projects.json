@@ -4,7 +4,7 @@
       "id": "1",
       "title": "QuestHub",
       "description": "API pour une plateforme de création de jeux de rôle en ligne.",
-      "description_details": "C'est mon plus gros projet back-end à ce jour. Il s'agit d'une API REST qui alimente un outils de gestion de jeux de rôle en ligne. J'ai beaucoup travaillé sur la partie authentification en faisant la connexion avec Firebase et j'ai travaillé sur l'élaboration de pattern et de pratiques communes dans ve repo collaboratif.",
+      "description_details": "C'est mon plus gros projet back-end à ce jour. Il s'agit d'une API REST qui alimente un outils de gestion de jeux de rôle en ligne. J'ai essentiellement travaillé sur la partie authentification avec une connexion à Firebase. Ce projet a été l'occasion d'un travail collaboratif et la construction de pattern et de pratiques communes dans un repo collaboratif.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=90519&format=png&color=000000",
         "https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
@@ -34,8 +34,13 @@
       "id": "3",
       "title": "Clara Vidoni",
       "description": "Site web de freelance.",
-      "description_details": "Ce site web a été crée sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul espace. J'ai réalisé la maquette du site, base sur laquelle nous avons ensuite itérée pour répondre à son besoin.",
-      "skills": ["Projet client", "Maquettage", "Solution sur mesure"],
+      "description_details": "Ce site web a été créé sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul espace. Sur la base d'une maquette Figma que j'ai réalisée, nous avons ensuite itéré pour répondre à ses besoins. J'assure la maintenance du site via les montées de version et les patch de sécurité.",
+      "skills": [
+        "Projet client",
+        "Maquettage",
+        "Solution sur mesure",
+        "Maintenance"
+      ],
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPznwv7OeqDgGjrlZfT28XyX4J9oJyZ9TYwg&s"
