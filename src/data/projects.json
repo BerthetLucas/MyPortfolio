@@ -21,7 +21,7 @@
       "id": "2",
       "title": "Sharing Link Transformer",
       "description": "Convertisseur de liens de partage entre Spotify et Deezer.",
-      "description_details": "J'ai fait ce projet tout simplement parce que j'en avais besoin. J'en ai profité pour monter en compétence principalement sur la mise en place d'un pipeline CI/CD et de tests end to end.",
+      "description_details": "J'ai fait ce projet parce que j'en avais besoin pour partager de la musique plus facilement avec mes proches. J'en ai profité pour monter en compétence principalement sur la mise en place d'un pipeline CI/CD et de tests end to end.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
         "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/2/playwright-y50bnthygb3rvsppvkm9e.png/playwright-q55xzpenhgjsodksybst.png?_a=DATAg1AAZAA0",
@@ -34,7 +34,7 @@
       "id": "3",
       "title": "Clara Vidoni",
       "description": "Site web de freelance.",
-      "description_details": "Ce site web a été crée sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul expace. J'ai réalisé la maquette du site, base sur laquelle nous avons ensuite pu itérer pour répondre à son besoin.",
+      "description_details": "Ce site web a été crée sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul espace. J'ai réalisé la maquette du site, base sur laquelle nous avons ensuite itérée pour répondre à son besoin.",
       "skills": ["Projet client", "Maquettage", "Solution sur mesure"],
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
