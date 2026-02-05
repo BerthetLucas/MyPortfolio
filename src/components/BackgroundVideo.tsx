@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { Children, useEffect, useState } from 'react';
 import testVideo from '../assets/test.mp4';
 import testWhiteVideo from '../assets/testwhite.mp4';
+import Silk from './Silk';
+import ColorBends from './ColorBends';
 
 export const BackgroundVideo = () => {
   const [isDark, setIsDark] = useState(false);
@@ -23,16 +25,35 @@ export const BackgroundVideo = () => {
 
   if (!mounted) return null;
 
+  if (!isDark) {
+    return (
+      <div className="absolute inset-0 z-0 opacity-70">
+        <ColorBends
+          rotation={45}
+          speed={0.2}
+          colors={['#e69233', '#e8a530', '#ecbe41']}
+          transparent
+          autoRotate={0}
+          scale={1}
+          frequency={1}
+          warpStrength={1}
+          mouseInfluence={undefined}
+          parallax={0.5}
+          noise={0.1}
+        />
+      </div>
+    );
+  }
+
   return (
-    <video
-      src={isDark ? testVideo : testWhiteVideo}
-      autoPlay
-      loop
-      muted
-      playsInline
-      className={`w-full h-full object-cover opacity-20 absolute top-0 left-0 z-0 ${
-        isDark ? 'opacity-5' : 'opacity-20'
-      }`}
-    />
+    <div className="absolute inset-0 z-0 opacity-30">
+      <Silk
+        speed={5}
+        scale={1}
+        color="#45485c"
+        noiseIntensity={4.1}
+        rotation={0}
+      />
+    </div>
   );
 };
