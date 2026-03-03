@@ -1,10 +1,15 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ContactForm } from './Contact/ContactForm';
 import { ProjectContainer } from './Projects/ProjectContainer';
-import { MotionSection } from './MotionComponents/MotionSection';
-import TypographyP from './Typographie/TypographieP.astro';
+import { useWebHaptics } from 'web-haptics/react';
 
 export const TabsToggle = () => {
+  const { trigger } = useWebHaptics();
+
+  const handleTabChangeClick = () => {
+    trigger([{ duration: 40 }]);
+  };
+
   return (
     <Tabs
       defaultValue="projects"
@@ -12,10 +17,18 @@ export const TabsToggle = () => {
       id="tabs-toggle"
     >
       <TabsList>
-        <TabsTrigger value="projects" className="text-xl">
+        <TabsTrigger
+          value="projects"
+          className="text-xl"
+          onClick={handleTabChangeClick}
+        >
           Projets
         </TabsTrigger>
-        <TabsTrigger value="contact" className="text-xl">
+        <TabsTrigger
+          value="contact"
+          className="text-xl"
+          onClick={handleTabChangeClick}
+        >
           Contact
         </TabsTrigger>
       </TabsList>

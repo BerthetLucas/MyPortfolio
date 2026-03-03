@@ -1,14 +1,15 @@
-'use client';
-
 import { Button } from '../ui/button';
 import { ArrowLeftIcon } from '../Icon/ArrowLeftIcon';
+import { useWebHaptics } from 'web-haptics/react';
 
 interface BackButtonProps {
   showOnMobile?: boolean;
 }
 
 export const BackButton = ({ showOnMobile }: BackButtonProps) => {
+  const { trigger } = useWebHaptics();
   const handleBackClick = () => {
+    trigger([{ duration: 15 }], { intensity: 0.4 });
     if (typeof window !== 'undefined') {
       window.history.back();
     }
