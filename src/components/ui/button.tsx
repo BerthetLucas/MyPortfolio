@@ -58,7 +58,7 @@ function Button({
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
-      onClick={() => trigger([{ duration: 25 }], { intensity: 0.7 })}
+      onClick={() => trigger([{ duration: 15 }], { intensity: 0.4 })}
       {...props}
     />
   );

@@ -7,7 +7,7 @@ export const TabsToggle = () => {
   const { trigger } = useWebHaptics();
 
   const handleTabChangeClick = () => {
-    trigger([{ duration: 25 }], { intensity: 0.7 });
+    trigger([{ duration: 40 }]);
   };
 
   return (

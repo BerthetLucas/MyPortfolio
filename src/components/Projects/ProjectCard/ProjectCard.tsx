@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/card';
 import { ProjectCardFooter } from './ProjectCardFooter';
 import useIsMobile from '@/hooks/use-is-mobile';
+import { useWebHaptics } from 'web-haptics/react';
 
 interface ProjectCardProps {
   projectId: string;
@@ -23,11 +24,17 @@ export const ProjectCard = ({
   image,
 }: ProjectCardProps) => {
   const { isMobile } = useIsMobile();
+  const { trigger } = useWebHaptics();
+
+  const handleProjectCardClick = () => {
+    trigger([{ duration: 40 }]);
+  };
 
   return (
     <a
       href={`/project-details/${projectId}`}
       className="block w-full max-w-3xl"
+      onClick={handleProjectCardClick}
     >
       <Card className="w-full transition-all duration-300 hover:shadow-lg md:flex md:flex-row hover:grayscale-0 hover:scale-102 cursor-pointer">
         <div className="flex flex-1 flex-col justify-between gap-2">
