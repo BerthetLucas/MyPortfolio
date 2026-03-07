@@ -66,22 +66,22 @@ jobs:
             -H "content-type: application/json" \
             -d "$PAYLOAD")
 
-          TEXT=$(echo "$RESPONSE" | jq -r '.content[0].text')
-          SAFE=$(echo "$TEXT" | jq -r '.safe')
-          REASON=$(echo "$TEXT" | jq -r '.reason')
+          TEXT=$(echo "$RESPONSE" | jq -r '.content[0].text // "{}"')
+          SAFE=$(echo "$TEXT" | jq -r '.safe // "error"')
+          REASON=$(echo "$TEXT" | jq -r '.reason // "Erreur lors de lappel a lAPI Claude"')
 
           echo "safe=$SAFE" >> "$GITHUB_OUTPUT"
           echo "reason=$REASON" >> "$GITHUB_OUTPUT"
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
-      # Auto-merge si : build OK + patch/minor + Claude dit safe (ou Claude a echoue)
+      # Auto-merge si : build OK + patch/minor + Claude dit explicitement safe
       - name: Auto-merge
         if: |
           steps.build.outcome == 'success' &&
           (steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
            steps.metadata.outputs.update-type == 'version-update:semver-minor') &&
-          (steps.claude.outputs.safe == 'true' || steps.claude.outcome == 'failure')
+          steps.claude.outputs.safe == 'true'
         run: gh pr merge --squash --auto "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
@@ -93,7 +93,7 @@ jobs:
           steps.build.outcome == 'success' &&
           (steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
            steps.metadata.outputs.update-type == 'version-update:semver-minor') &&
-          (steps.claude.outputs.safe == 'true' || steps.claude.outcome == 'failure')
+          steps.claude.outputs.safe == 'true'
         run: |
           REASON="${{ steps.claude.outputs.reason }}"
           [ -z "$REASON" ] && REASON="Analyse Claude non disponible"
@@ -111,6 +111,32 @@ jobs:
                 {name: "Version", value: $ver, inline: true},
                 {name: "Type", value: $type, inline: true},
                 {name: "Analyse Claude", value: $reason},
+                {name: "PR", value: $pr}
+              ]
+            }]}')
+          curl -s -H "Content-Type: application/json" -d "$PAYLOAD" "$DISCORD_WEBHOOK_URL"
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+      # Notif orange : erreur API Claude
+      - name: Discord - erreur analyse Claude
+        if: |
+          steps.build.outcome == 'success' &&
+          (steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+           steps.metadata.outputs.update-type == 'version-update:semver-minor') &&
+          steps.claude.outputs.safe == 'error'
+        run: |
+          PAYLOAD=$(jq -n \
+            --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
+            --arg ver "`${{ steps.metadata.outputs.previous-version }}` -> `${{ steps.metadata.outputs.new-version }}`" \
+            --arg pr "${{ github.event.pull_request.html_url }}" \
+            '{embeds: [{
+              title: "Erreur analyse Claude - review manuelle requise",
+              color: 15105570,
+              fields: [
+                {name: "Package", value: $pkg, inline: true},
+                {name: "Version", value: $ver, inline: true},
+                {name: "Raison", value: "Claude na pas pu analyser la PR, merci de verifier manuellement."},
                 {name: "PR", value: $pr}
               ]
             }]}')
