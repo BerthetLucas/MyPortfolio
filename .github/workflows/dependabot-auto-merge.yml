@@ -46,13 +46,16 @@ jobs:
       - name: Analyze with Claude
         id: claude
         continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           PAYLOAD=$(jq -n \
             --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
             --arg from "${{ steps.metadata.outputs.previous-version }}" \
             --arg to "${{ steps.metadata.outputs.new-version }}" \
             --arg type "${{ steps.metadata.outputs.update-type }}" \
-            --arg body "${{ github.event.pull_request.body }}" \
+            --arg body "$PR_BODY" \
             '{
               model: "claude-haiku-4-5-20251001",
               max_tokens: 300,
@@ -74,8 +77,6 @@ jobs:
 
           echo "safe=$SAFE" >> "$GITHUB_OUTPUT"
           echo "reason=$REASON" >> "$GITHUB_OUTPUT"
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       # Auto-merge si : build OK + patch/minor + Claude dit explicitement safe
       - name: Auto-merge
