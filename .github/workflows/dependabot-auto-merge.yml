@@ -61,7 +61,7 @@ jobs:
               max_tokens: 300,
               messages: [{
                 role: "user",
-                content: ("Tu es un expert en dependances npm. Analyse cette PR Dependabot pour un portfolio web (Astro + React + TypeScript).\nPackage: " + $pkg + "\nVersion: " + $from + " -> " + $to + " (" + $type + ")\nDescription PR:\n\n" + $body + "\n\nReponds UNIQUEMENT avec du JSON valide: {\"safe\": true/false, \"reason\": \"une phrase en francais expliquant pourquoi\"}\nsafe=true = pas de breaking changes attendus, merge automatique OK.")
+                content: ("Tu es un expert en dependances npm. Analyse cette PR Dependabot pour un portfolio web (Astro + React + TypeScript).\nPackage: " + $pkg + "\nVersion: " + $from + " -> " + $to + " (" + $type + ")\nDescription PR:\n\n" + $body + "\n\nReponds UNIQUEMENT avec du JSON brut valide, sans balises markdown, sans texte avant ou apres: {\"safe\": true/false, \"reason\": \"une phrase en francais expliquant pourquoi\"}\nsafe=true = pas de breaking changes attendus, merge automatique OK.")
               }]
             }')
 
@@ -78,8 +78,10 @@ jobs:
             SAFE="error"
             REASON="Erreur API Claude - reponse inattendue"
           else
-            SAFE=$(echo "$TEXT" | jq -r '.safe' 2>/dev/null || echo "error")
-            REASON=$(echo "$TEXT" | jq -r '.reason' 2>/dev/null || echo "Erreur parsing reponse Claude")
+            # Supprimer les balises markdown si Claude les ajoute malgre tout
+            CLEAN=$(echo "$TEXT" | sed 's/```json//g' | sed 's/```//g')
+            SAFE=$(echo "$CLEAN" | jq -r '.safe' 2>/dev/null || echo "error")
+            REASON=$(echo "$CLEAN" | jq -r '.reason' 2>/dev/null || echo "Erreur parsing reponse Claude")
             [ "$SAFE" = "null" ] && SAFE="error"
             [ "$REASON" = "null" ] && REASON="Erreur parsing reponse Claude"
           fi
