@@ -99,7 +99,7 @@ jobs:
           [ -z "$REASON" ] && REASON="Analyse Claude non disponible"
           PAYLOAD=$(jq -n \
             --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
-            --arg ver "`${{ steps.metadata.outputs.previous-version }}` -> `${{ steps.metadata.outputs.new-version }}`" \
+            --arg ver "${{ steps.metadata.outputs.previous-version }} -> ${{ steps.metadata.outputs.new-version }}" \
             --arg type "${{ steps.metadata.outputs.update-type }}" \
             --arg pr "${{ github.event.pull_request.html_url }}" \
             --arg reason "$REASON" \
@@ -128,7 +128,7 @@ jobs:
         run: |
           PAYLOAD=$(jq -n \
             --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
-            --arg ver "`${{ steps.metadata.outputs.previous-version }}` -> `${{ steps.metadata.outputs.new-version }}`" \
+            --arg ver "${{ steps.metadata.outputs.previous-version }} -> ${{ steps.metadata.outputs.new-version }}" \
             --arg pr "${{ github.event.pull_request.html_url }}" \
             '{embeds: [{
               title: "Erreur analyse Claude - review manuelle requise",
@@ -154,7 +154,7 @@ jobs:
         run: |
           PAYLOAD=$(jq -n \
             --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
-            --arg ver "`${{ steps.metadata.outputs.previous-version }}` -> `${{ steps.metadata.outputs.new-version }}`" \
+            --arg ver "${{ steps.metadata.outputs.previous-version }} -> ${{ steps.metadata.outputs.new-version }}" \
             --arg type "${{ steps.metadata.outputs.update-type }}" \
             --arg pr "${{ github.event.pull_request.html_url }}" \
             --arg reason "${{ steps.claude.outputs.reason }}" \
@@ -181,7 +181,7 @@ jobs:
           [ -z "$REASON" ] && REASON="Mise a jour majeure - verifier les breaking changes"
           PAYLOAD=$(jq -n \
             --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
-            --arg ver "`${{ steps.metadata.outputs.previous-version }}` -> `${{ steps.metadata.outputs.new-version }}`" \
+            --arg ver "${{ steps.metadata.outputs.previous-version }} -> ${{ steps.metadata.outputs.new-version }}" \
             --arg pr "${{ github.event.pull_request.html_url }}" \
             --arg reason "$REASON" \
             '{embeds: [{
@@ -204,7 +204,7 @@ jobs:
         run: |
           PAYLOAD=$(jq -n \
             --arg pkg "${{ steps.metadata.outputs.dependency-names }}" \
-            --arg ver "`${{ steps.metadata.outputs.previous-version }}` -> `${{ steps.metadata.outputs.new-version }}`" \
+            --arg ver "${{ steps.metadata.outputs.previous-version }} -> ${{ steps.metadata.outputs.new-version }}" \
             --arg pr "${{ github.event.pull_request.html_url }}" \
             '{embeds: [{
               title: "Build echoue - PR non mergee",
