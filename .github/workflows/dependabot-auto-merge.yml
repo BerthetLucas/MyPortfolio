@@ -71,9 +71,18 @@ jobs:
             -H "content-type: application/json" \
             -d "$PAYLOAD")
 
-          TEXT=$(echo "$RESPONSE" | jq -r '.content[0].text // "{}"')
-          SAFE=$(echo "$TEXT" | jq -r '.safe // "error"')
-          REASON=$(echo "$TEXT" | jq -r '.reason // "Erreur lors de lappel a lAPI Claude"')
+          echo "Claude raw response: $RESPONSE"
+
+          TEXT=$(echo "$RESPONSE" | jq -r '.content[0].text' 2>/dev/null)
+          if [ -z "$TEXT" ] || [ "$TEXT" = "null" ]; then
+            SAFE="error"
+            REASON="Erreur API Claude - reponse inattendue"
+          else
+            SAFE=$(echo "$TEXT" | jq -r '.safe' 2>/dev/null || echo "error")
+            REASON=$(echo "$TEXT" | jq -r '.reason' 2>/dev/null || echo "Erreur parsing reponse Claude")
+            [ "$SAFE" = "null" ] && SAFE="error"
+            [ "$REASON" = "null" ] && REASON="Erreur parsing reponse Claude"
+          fi
 
           echo "safe=$SAFE" >> "$GITHUB_OUTPUT"
           echo "reason=$REASON" >> "$GITHUB_OUTPUT"
