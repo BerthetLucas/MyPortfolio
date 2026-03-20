@@ -34,7 +34,7 @@
     "sharp": "^0.34.5",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "three": "^0.183.2",
     "web-haptics": "^0.0.6"
   },
