@@ -2,6 +2,7 @@
   "projects": [
     {
       "id": "1",
+      "status": "done",
       "title": "QuestHub",
       "description": "API pour une plateforme de création de jeux de rôle en ligne.",
       "description_details": "C'est mon plus gros projet back-end à ce jour. Il s'agit d'une API REST qui alimente un outils de gestion de jeux de rôle en ligne. J'ai essentiellement travaillé sur la partie authentification avec une connexion à Firebase. Ce projet a été l'occasion d'un travail collaboratif et la construction de pattern et de pratiques communes dans un repo collaboratif.",
@@ -19,6 +20,7 @@
     },
     {
       "id": "2",
+      "status": "done",
       "title": "Sharing Link Transformer",
       "description": "Convertisseur de liens de partage entre Spotify et Deezer.",
       "description_details": "J'ai fait ce projet parce que j'en avais besoin pour partager de la musique plus facilement avec mes proches. J'en ai profité pour monter en compétence principalement sur la mise en place d'un pipeline CI/CD et de tests end to end.",
@@ -32,20 +34,35 @@
     },
     {
       "id": "3",
+      "status": "done",
       "title": "Clara Vidoni",
       "description": "Site web de freelance.",
       "description_details": "Ce site web a été créé sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul espace. Sur la base d'une maquette Figma que j'ai réalisée, nous avons ensuite itéré pour répondre à ses besoins. J'assure la maintenance du site via les montées de version et les patch de sécurité.",
+      "technologies": [
+        "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPznwv7OeqDgGjrlZfT28XyX4J9oJyZ9TYwg&s"
+      ],
+      "url": "https://claravidoni.com",
       "skills": [
         "Projet client",
         "Maquettage",
         "Solution sur mesure",
         "Maintenance"
-      ],
+      ]
+    },
+    {
+      "id": "4",
+      "status": "wip",
+      "title": "Budget App",
+      "description": "Production de code automatisée",
+      "description_details": "Ce projet est une expérience autour de la création assistée par IA et de l'automatisation de tâches. Il m'a permis de développer un regard critique sur l'utilisation de l'IA dans la production de code : sans une revue attentive, la dette technique s'accumule rapidement. Au-delà de l'app elle-même, j'explore l'automatisation de workflows en ajoutant de la review IA pour merge automatiquement les mises à jours de versions Dependabot.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPznwv7OeqDgGjrlZfT28XyX4J9oJyZ9TYwg&s"
+        "https://img.icons8.com/?size=100&id=zQjzFjPpT2Ek&format=png&color=000000",
+        "https://img.icons8.com/?size=100&id=grZaE9tjqDyr&format=png&color=000000"
       ],
-      "url": "https://claravidoni.com"
+      "url": "https://budget-app-uwil.vercel.app/",
+      "skills": ["Workflow IA", "Supabase"]
     }
   ]
 }

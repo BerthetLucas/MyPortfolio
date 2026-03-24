@@ -5,6 +5,7 @@ import { BackButton } from '@/components/ProjectDetails/BackButton';
 import questHubImage from '@/assets/questHub.png';
 import sharingLinkImage from '@/assets/sharing-link-transformer.png';
 import claraVidoniImage from '@/assets/claravidoni.png';
+import wipImage from '@/assets/wip.png';
 import ProjetDetailsHeader from '@/components/ProjectDetails/ProjetDetailsHeader.astro';
 import ProjectDetailsContent from '@/components/ProjectDetails/ProjectDetailsContent.astro';
 import ProjectDetailsDescriptionCard from '@/components/ProjectDetails/ProjectDetailsDescriptionCard.astro';
@@ -13,6 +14,7 @@ const projectImages: { [key: string]: typeof questHubImage } = {
   '1': questHubImage,
   '2': sharingLinkImage,
   '3': claraVidoniImage,
+  '4': wipImage,
 };
 
 export function getStaticPaths() {
@@ -29,7 +31,7 @@ if (!project) {
 }
 
 const projectImage = projectImages[id];
-const { title, technologies, url, description, description_details, skills } = project;
+const { title, technologies, url, description_details, skills } = project;
 
 ---
 
