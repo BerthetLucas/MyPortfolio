@@ -1,5 +1,8 @@
 ---
-import { GithubIcon, LinkedinIcon } from 'lucide-react';
+import { GitHubIcon } from "@/components/Icon/GitHubIcon";
+import { LinkedinIcon } from "@/components/Icon/LinkedinIcon";
+
+
 ---
 
 <footer class="bg-background text-foreground">
@@ -8,20 +11,8 @@ import { GithubIcon, LinkedinIcon } from 'lucide-react';
       &copy; {new Date().getFullYear()} Lucas Berthet. Tous droits réservés.
     </p>
     <div class="flex gap-2">
-      <a
-        href="https://github.com/BerthetLucas"
-        target="_blank"
-            rel="noopener noreferrer"
-      >
-        <GithubIcon className="h-6 w-6  hover:text-primary transition-colors text-muted-foreground" />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/lucas-berthet-976657101/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <LinkedinIcon className="h-6 w-6 hover:text-primary transition-colors text-muted-foreground" />
-      </a>
+        <GitHubIcon classNames="w-10 h-10" />
+        <LinkedinIcon classNames="w-10 h-10"/>
     </div>
   </div>
 </footer>
