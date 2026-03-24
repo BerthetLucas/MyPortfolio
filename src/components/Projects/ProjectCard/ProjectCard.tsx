@@ -45,7 +45,7 @@ export const ProjectCard = ({
           <ProjectCardFooter technologies={technologies} />
         </div>
         {!isMobile && (
-          <div className="w-full md:w-1/2 md:min-w-[280px] relative aspect-video md:aspect-auto">
+          <div className="w-full md:w-1/2 md:min-w-70 relative aspect-video md:aspect-auto">
             <img
               src={image}
               alt="Project Image"
