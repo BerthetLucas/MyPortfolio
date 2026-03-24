@@ -9,6 +9,7 @@ import wipImage from '@/assets/wip.png';
 import ProjetDetailsHeader from '@/components/ProjectDetails/ProjetDetailsHeader.astro';
 import ProjectDetailsContent from '@/components/ProjectDetails/ProjectDetailsContent.astro';
 import ProjectDetailsDescriptionCard from '@/components/ProjectDetails/ProjectDetailsDescriptionCard.astro';
+import type { Lang } from '@/i18n/utils';
 
 const projectImages: { [key: string]: typeof questHubImage } = {
   '1': questHubImage,
@@ -18,12 +19,14 @@ const projectImages: { [key: string]: typeof questHubImage } = {
 };
 
 export function getStaticPaths() {
-  return projects.projects.map(project => ({
-    params: { id: project.id },
-  }));
+  return projects.projects.flatMap(project =>
+    (['fr', 'en'] as Lang[]).map(lang => ({
+      params: { lang, id: project.id },
+    }))
+  );
 }
 
-const { id } = Astro.params;
+const { lang, id } = Astro.params as { lang: Lang; id: string };
 const project = projects.projects.find(p => p.id === id);
 
 if (!project) {
@@ -31,15 +34,20 @@ if (!project) {
 }
 
 const projectImage = projectImages[id];
-const { title, technologies, url, description_details, skills } = project;
-
+const { title, technologies, url } = project;
+const description_details = lang === 'en'
+  ? (project.description_details_en ?? project.description_details)
+  : project.description_details;
+const skills = lang === 'en'
+  ? (project.skills_en ?? project.skills)
+  : project.skills;
 ---
 
-<Layout>
+<Layout lang={lang}>
   <section class="flex flex-col items-center justify-around min-h-screen mx-5 gap-10 mt-5">
     <ProjetDetailsHeader title={title} technologies={technologies} />
-    <ProjectDetailsContent url={url} title={title} image={projectImage} />
-    <ProjectDetailsDescriptionCard description_details={description_details} skills={skills} />
+    <ProjectDetailsContent url={url} title={title} image={projectImage} lang={lang} />
+    <ProjectDetailsDescriptionCard description_details={description_details} skills={skills} lang={lang} />
     <BackButton client:load showOnMobile />
   </section>
 </Layout>

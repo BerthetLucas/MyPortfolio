@@ -2,9 +2,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ContactForm } from './Contact/ContactForm';
 import { ProjectContainer } from './Projects/ProjectContainer';
 import { useWebHaptics } from 'web-haptics/react';
+import type { Lang } from '@/i18n/utils';
+import { getTranslations } from '@/i18n/utils';
 
-export const TabsToggle = () => {
+interface TabsToggleProps {
+  lang?: Lang;
+}
+
+export const TabsToggle = ({ lang = 'fr' }: TabsToggleProps) => {
   const { trigger } = useWebHaptics();
+  const t = getTranslations(lang);
 
   const handleTabChangeClick = () => {
     trigger([{ duration: 40 }]);
@@ -22,21 +29,21 @@ export const TabsToggle = () => {
           className="text-xl"
           onClick={handleTabChangeClick}
         >
-          Projets
+          {t['tabs.projects']}
         </TabsTrigger>
         <TabsTrigger
           value="contact"
           className="text-xl"
           onClick={handleTabChangeClick}
         >
-          Contact
+          {t['tabs.contact']}
         </TabsTrigger>
       </TabsList>
       <TabsContent value="projects" className="w-3/4">
-        <ProjectContainer />
+        <ProjectContainer lang={lang} />
       </TabsContent>
       <TabsContent value="contact" className="flex flex-col w-3/4">
-        <ContactForm />
+        <ContactForm lang={lang} />
       </TabsContent>
     </Tabs>
   );

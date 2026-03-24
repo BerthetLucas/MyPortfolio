@@ -1,11 +1,15 @@
 import { GitHubIcon } from '../Icon/GitHubIcon';
 import { LinkedinIcon } from '../Icon/LinkedinIcon';
 
-export const ContactText = () => {
+interface ContactTextProps {
+  roleText: string;
+}
+
+export const ContactText = ({ roleText }: ContactTextProps) => {
   return (
     <div className="flex flex-col mt-18 gap-10 items-center justify-center text-nowrap">
       <p>
-        Développeur Front-End chez{' '}
+        {roleText}{' '}
         <span>
           <a
             href="https://www.kolecto.fr/"

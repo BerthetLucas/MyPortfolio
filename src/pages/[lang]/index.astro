@@ -1,0 +1,20 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { TabsToggle } from '@/components/TabsToggle.tsx';
+import Header from '@/layouts/Header.astro';
+import type { Lang } from '@/i18n/utils';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'fr' } },
+    { params: { lang: 'en' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: Lang };
+---
+
+<Layout lang={lang}>
+  <Header lang={lang} />
+  <TabsToggle client:load lang={lang} />
+</Layout>

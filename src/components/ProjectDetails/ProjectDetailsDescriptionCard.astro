@@ -2,24 +2,28 @@
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import TypographyP from '../Typographie/TypographieP.astro';
 import SkillsCard from './SkillsCard.astro';
+import type { Lang } from '@/i18n/utils';
+import { getTranslations } from '@/i18n/utils';
 
 interface Props {
   description_details: string;
   skills: string[];
+  lang?: Lang;
 }
 
-const { description_details, skills } = Astro.props;
+const { description_details, skills, lang = 'fr' } = Astro.props;
+const t = getTranslations(lang);
 ---
 
 <Card className="w-7/8 md:w-1/2 py-4">
   <CardHeader>
-    <CardTitle className="text-xl font-bold">Le projet</CardTitle>
+    <CardTitle className="text-xl font-bold">{t['project.theProject']}</CardTitle>
   </CardHeader>
   <CardContent className="flex flex-col gap-3">
     <div>
       <TypographyP>{description_details}</TypographyP>
     </div>
-    <h3 class="font-bold">Compétences</h3>
+    <h3 class="font-bold">{t['project.skills']}</h3>
     <div class="flex flex-wrap gap-2">
       {skills.map(skill => (
         <SkillsCard skill={skill} />
