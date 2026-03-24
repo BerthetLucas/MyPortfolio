@@ -17,8 +17,8 @@ export const ContactText = () => {
         </span>
       </p>
       <div className="flex flex-row items-center justify-center gap-5">
-        <GitHubIcon />
-        <LinkedinIcon />
+        <GitHubIcon classNames="w-14 h-14" />
+        <LinkedinIcon classNames="w-14 h-14" />
       </div>
     </div>
   );
