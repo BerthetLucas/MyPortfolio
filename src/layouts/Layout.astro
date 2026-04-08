@@ -4,55 +4,68 @@ import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
 import portfolioImage from '@/assets/portfolio.png';
+import type { Lang } from '@/i18n/utils';
+import { getTranslations } from '@/i18n/utils';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: Lang;
 }
 
 const {
-  title = 'Lucas Berthet - Portfolio',
-  description = 'Découvrez mes projets et mes compétences en développement web',
+  lang = 'fr',
+  title,
+  description,
 } = Astro.props;
 
+const t = getTranslations(lang);
+const resolvedTitle = title ?? t['meta.title'];
+const resolvedDescription = description ?? t['meta.description'];
+
 const siteUrl = Astro.url.href;
-const imageUrl = new URL(portfolioImage.src, Astro.site).href; 
+const imageUrl = new URL(portfolioImage.src, Astro.site).href;
+const ogLocale = lang === 'en' ? 'en_US' : 'fr_FR';
+
+const otherLang: Lang = lang === 'fr' ? 'en' : 'fr';
+const switchUrl = Astro.url.pathname.replace(new RegExp(`^/${lang}`), `/${otherLang}`);
+const switchLabel = t['lang.switch'];
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <link rel="icon" href="/favicon.ico" />
   <meta name="generator" content={Astro.generator} />
-  
+
   <!-- SEO & Meta Tags -->
-  <title>{title}</title>
-  <meta name="description" content={description} />
+  <title>{resolvedTitle}</title>
+  <meta name="description" content={resolvedDescription} />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-  
+
   <!-- OpenGraph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={resolvedTitle} />
+  <meta property="og:description" content={resolvedDescription} />
   <meta property="og:image" content={imageUrl} />
   <meta property="og:url" content={siteUrl} />
-  <meta property="og:locale" content="fr_FR" />
-  
+  <meta property="og:locale" content={ogLocale} />
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:title" content={resolvedTitle} />
+  <meta name="twitter:description" content={resolvedDescription} />
   <meta name="twitter:image" content={imageUrl} />
-  
+
   <!-- Canonical -->
   <link rel="canonical" href={siteUrl} />
-  
+
   <Analytics />
-  
+
   <script>
     function applyStoredTheme() {
       const theme = (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
@@ -73,7 +86,16 @@ const imageUrl = new URL(portfolioImage.src, Astro.site).href;
 </head>
 <body>
 <ClientRouter />
+<div class="fixed top-4 right-4 z-50">
+  <a
+    href={switchUrl}
+    onclick={`localStorage.setItem('lang', '${otherLang}'); return true;`}
+    class="px-3 py-1 text-sm font-semibold rounded-full border border-current opacity-70 hover:opacity-100 transition-opacity"
+  >
+    {switchLabel}
+  </a>
+</div>
 <slot />
-<Footer />
+<Footer lang={lang} />
 </body>
 </html>

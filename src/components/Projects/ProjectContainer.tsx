@@ -6,6 +6,7 @@ import questHubImage from '@/assets/questHub.png';
 import sharingLinkImage from '@/assets/sharing-link-transformer.png';
 import claraVidoniImage from '@/assets/claravidoni.png';
 import wipImage from '@/assets/wip.png';
+import type { Lang } from '@/i18n/utils';
 
 const projectImages: { [key: string]: string } = {
   '1': questHubImage.src,
@@ -14,7 +15,11 @@ const projectImages: { [key: string]: string } = {
   '4': wipImage.src,
 };
 
-export const ProjectContainer = () => {
+interface ProjectContainerProps {
+  lang?: Lang;
+}
+
+export const ProjectContainer = ({ lang = 'fr' }: ProjectContainerProps) => {
   const doneProjects = projects.projects.filter(p => p.status === 'done');
   const wipProject = projects.projects.find(p => p.status === 'wip');
 
@@ -28,9 +33,10 @@ export const ProjectContainer = () => {
           key={project.id}
           projectId={project.id}
           title={project.title}
-          description={project.description}
+          description={lang === 'en' ? (project.description_en ?? project.description) : project.description}
           technologies={project.technologies}
           image={projectImages[project.id]}
+          lang={lang}
         />
       ))}
       {wipProject && (
@@ -38,9 +44,10 @@ export const ProjectContainer = () => {
           <WIPProjectCard
             projectId={wipProject.id}
             title={wipProject.title}
-            description={wipProject.description}
+            description={lang === 'en' ? (wipProject.description_en ?? wipProject.description) : wipProject.description}
             technologies={wipProject.technologies}
             image={projectImages[wipProject.id]}
+            lang={lang}
           />
         </div>
       )}

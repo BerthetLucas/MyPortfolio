@@ -1,11 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { TabsToggle } from '@/components/TabsToggle.tsx';
-import Header from '@/layouts/Header.astro';
-import TypographyP from '@/components/Typographie/TypographieP.astro';
+// Redirect to the appropriate locale based on browser language preference.
+// localStorage is used to remember the user's choice and avoid redirect loops.
 ---
 
-<Layout>
-	<Header />
-	<TabsToggle client:load />	
-</Layout>
+<script>
+  const saved = localStorage.getItem('lang');
+  if (saved === 'fr' || saved === 'en') {
+    window.location.replace('/' + saved + '/');
+  } else {
+    const isEn = navigator.language.startsWith('en');
+    const lang = isEn ? 'en' : 'fr';
+    localStorage.setItem('lang', lang);
+    window.location.replace('/' + lang + '/');
+  }
+</script>

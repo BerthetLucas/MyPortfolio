@@ -7,6 +7,7 @@ import {
 import { ProjectCardFooter } from './ProjectCardFooter';
 import useIsMobile from '@/hooks/use-is-mobile';
 import { useWebHaptics } from 'web-haptics/react';
+import type { Lang } from '@/i18n/utils';
 
 interface ProjectCardProps {
   projectId: string;
@@ -14,6 +15,7 @@ interface ProjectCardProps {
   description: string;
   technologies: string[];
   image: string;
+  lang?: Lang;
 }
 
 export const ProjectCard = ({
@@ -22,6 +24,7 @@ export const ProjectCard = ({
   description,
   technologies,
   image,
+  lang = 'fr',
 }: ProjectCardProps) => {
   const { isMobile } = useIsMobile();
   const { trigger } = useWebHaptics();
@@ -32,7 +35,7 @@ export const ProjectCard = ({
 
   return (
     <a
-      href={`/project-details/${projectId}`}
+      href={`/${lang}/project-details/${projectId}`}
       className="block w-full max-w-3xl"
       onClick={handleProjectCardClick}
     >

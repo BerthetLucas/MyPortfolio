@@ -9,6 +9,11 @@ export default defineConfig({
   site: 'https://lucasberthet.io',
   integrations: [react()],
 
+  i18n: {
+    defaultLocale: 'fr',
+    locales: ['fr', 'en'],
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

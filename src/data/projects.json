@@ -5,7 +5,9 @@
       "status": "done",
       "title": "QuestHub",
       "description": "API pour une plateforme de création de jeux de rôle en ligne.",
+      "description_en": "API for an online role-playing game management platform.",
       "description_details": "C'est mon plus gros projet back-end à ce jour. Il s'agit d'une API REST qui alimente un outils de gestion de jeux de rôle en ligne. J'ai essentiellement travaillé sur la partie authentification avec une connexion à Firebase. Ce projet a été l'occasion d'un travail collaboratif et la construction de pattern et de pratiques communes dans un repo collaboratif.",
+      "description_details_en": "This is my biggest back-end project to date. It is a REST API powering an online role-playing game management tool. I mainly worked on the authentication layer with a Firebase connection. This project was an opportunity for collaborative work and building shared patterns and practices in a collaborative repo.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=90519&format=png&color=000000",
         "https://img.icons8.com/?size=100&id=22813&format=png&color=000000"
@@ -16,6 +18,12 @@
         "Gestion de projet",
         "Conteneurisation",
         "Architecture"
+      ],
+      "skills_en": [
+        "Design",
+        "Project management",
+        "Containerization",
+        "Architecture"
       ]
     },
     {
@@ -23,21 +31,26 @@
       "status": "done",
       "title": "Sharing Link Transformer",
       "description": "Convertisseur de liens de partage entre Spotify et Deezer.",
+      "description_en": "A sharing link converter between Spotify and Deezer.",
       "description_details": "J'ai fait ce projet parce que j'en avais besoin pour partager de la musique plus facilement avec mes proches. J'en ai profité pour monter en compétence principalement sur la mise en place d'un pipeline CI/CD et de tests end to end.",
+      "description_details_en": "I built this project because I needed it to share music more easily with friends and family. It was also an opportunity to level up my skills, mainly around setting up a CI/CD pipeline and end-to-end testing.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
         "https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/2/playwright-y50bnthygb3rvsppvkm9e.png/playwright-q55xzpenhgjsodksybst.png?_a=DATAg1AAZAA0",
         "https://testing-library.com/img/octopus-128x128.png"
       ],
       "url": "https://sharing-links-transformer.vercel.app/",
-      "skills": ["CI/CD", "Test end to end", "TanStack Query", "Gestion d'état"]
+      "skills": ["CI/CD", "Test end to end", "TanStack Query", "Gestion d'état"],
+      "skills_en": ["CI/CD", "End-to-end testing", "TanStack Query", "State management"]
     },
     {
       "id": "3",
       "status": "done",
       "title": "Clara Vidoni",
       "description": "Site web de freelance.",
+      "description_en": "Freelance website.",
       "description_details": "Ce site web a été créé sur mesure pour répondre aux besoins de Clara : rassembler ses projets et ses compétences sur un seul espace. Sur la base d'une maquette Figma que j'ai réalisée, nous avons ensuite itéré pour répondre à ses besoins. J'assure la maintenance du site via les montées de version et les patch de sécurité.",
+      "description_details_en": "This website was custom-built to meet Clara's needs: bringing her projects and skills together in one place. Starting from a Figma mockup I designed, we iterated together to match her requirements. I handle ongoing maintenance through version upgrades and security patches.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPznwv7OeqDgGjrlZfT28XyX4J9oJyZ9TYwg&s"
@@ -48,6 +61,12 @@
         "Maquettage",
         "Solution sur mesure",
         "Maintenance"
+      ],
+      "skills_en": [
+        "Client project",
+        "Mockup design",
+        "Custom solution",
+        "Maintenance"
       ]
     },
     {
@@ -55,14 +74,17 @@
       "status": "wip",
       "title": "Budget App",
       "description": "Production de code automatisée",
+      "description_en": "Automated code production",
       "description_details": "Ce projet est une expérience autour de la création assistée par IA et de l'automatisation de tâches. Il m'a permis de développer un regard critique sur l'utilisation de l'IA dans la production de code : sans une revue attentive, la dette technique s'accumule rapidement. Au-delà de l'app elle-même, j'explore l'automatisation de workflows en ajoutant de la review IA pour merge automatiquement les mises à jours de versions Dependabot.",
+      "description_details_en": "This project is an experiment around AI-assisted creation and task automation. It helped me develop a critical eye on using AI in code production: without careful review, technical debt accumulates quickly. Beyond the app itself, I explore workflow automation by adding AI-powered review to automatically merge Dependabot version updates.",
       "technologies": [
         "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
         "https://img.icons8.com/?size=100&id=zQjzFjPpT2Ek&format=png&color=000000",
         "https://img.icons8.com/?size=100&id=grZaE9tjqDyr&format=png&color=000000"
       ],
       "url": "https://budget-app-uwil.vercel.app/",
-      "skills": ["Workflow IA", "Supabase"]
+      "skills": ["Workflow IA", "Supabase"],
+      "skills_en": ["AI Workflow", "Supabase"]
     }
   ]
 }

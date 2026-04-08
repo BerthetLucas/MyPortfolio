@@ -10,11 +10,16 @@ import { Spinner } from '../ui/spinner';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import meImage from '@/assets/me.jpeg';
 import { MotionSection } from '../MotionComponents/MotionSection.tsx';
+import type { Lang } from '@/i18n/utils';
+import { getTranslations } from '@/i18n/utils';
 
-export const ContactForm = () => {
+interface ContactFormProps {
+  lang?: Lang;
+}
+
+export const ContactForm = ({ lang = 'fr' }: ContactFormProps) => {
   const form = useRef<HTMLFormElement>(null);
-
-  console.log(PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID);
+  const t = getTranslations(lang);
 
   const [isEmailSending, setIsEmailSending] = useState(false);
 
@@ -26,12 +31,12 @@ export const ContactForm = () => {
     const message = formData.get('message') as string;
 
     if (!email || !message) {
-      toast.error('Veuillez remplir tous les champs');
+      toast.error(t['contact.errorEmpty']);
       return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast.error('Veuillez entrer une adresse email valide');
+      toast.error(t['contact.errorEmail']);
       return;
     }
 
@@ -42,19 +47,19 @@ export const ContactForm = () => {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
         publicKey: PUBLIC_KEY,
       });
-      toast.success('Message envoyé avec succès');
+      toast.success(t['contact.success']);
       setIsEmailSending(false);
       form.current.reset();
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      toast.error("Erreur d'envoie");
+      toast.error(t['contact.error']);
       setIsEmailSending(false);
     }
   };
 
   return (
     <MotionSection delay={0.1} className="w-full flex flex-col items-center">
-      <ContactText />
+      <ContactText roleText={t['contact.role']} />
       <form
         className="flex flex-col items-center justify-center w-full md:w-3/4 mt-10 gap-6 md:gap-8"
         onSubmit={handleSubmit}
@@ -64,7 +69,7 @@ export const ContactForm = () => {
         <MessageInput />
         <Button type="submit" disabled={isEmailSending}>
           {isEmailSending && <Spinner />}
-          Envoyer
+          {t['contact.send']}
         </Button>
       </form>
       <Avatar className="w-50 md:w-60 mt-10">

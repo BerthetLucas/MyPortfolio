@@ -7,6 +7,8 @@ import {
 import { ProjectCardFooter } from './ProjectCardFooter';
 import useIsMobile from '@/hooks/use-is-mobile';
 import { useWebHaptics } from 'web-haptics/react';
+import type { Lang } from '@/i18n/utils';
+import { getTranslations } from '@/i18n/utils';
 
 interface WIPProjectCardProps {
   projectId: string;
@@ -14,6 +16,7 @@ interface WIPProjectCardProps {
   description: string;
   technologies: string[];
   image: string;
+  lang?: Lang;
 }
 
 export const WIPProjectCard = ({
@@ -22,9 +25,11 @@ export const WIPProjectCard = ({
   description,
   technologies,
   image,
+  lang = 'fr',
 }: WIPProjectCardProps) => {
   const { isMobile } = useIsMobile();
   const { trigger } = useWebHaptics();
+  const t = getTranslations(lang);
 
   const handleProjectCardClick = () => {
     trigger([{ duration: 40 }]);
@@ -32,9 +37,9 @@ export const WIPProjectCard = ({
 
   return (
     <>
-      <h3 className="mb-5">... Ou mes travaux en cours ?</h3>
+      <h3 className="mb-5">{t['project.wip']}</h3>
       <a
-        href={`/project-details/${projectId}`}
+        href={`/${lang}/project-details/${projectId}`}
         className="block w-full max-w-3xl"
         onClick={handleProjectCardClick}
       >

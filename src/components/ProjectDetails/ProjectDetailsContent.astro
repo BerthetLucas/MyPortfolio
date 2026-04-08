@@ -2,14 +2,18 @@
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import { Button } from '../ui/button';
+import type { Lang } from '@/i18n/utils';
+import { getTranslations } from '@/i18n/utils';
 
 interface Props {
   url: string;
   title: string;
   image: ImageMetadata;
+  lang?: Lang;
 }
 
-const { url, title, image } = Astro.props;
+const { url, title, image, lang = 'fr' } = Astro.props;
+const t = getTranslations(lang);
 ---
 
 <div class="w-7/8 md:w-1/2 flex flex-col items-center gap-5">
@@ -28,7 +32,7 @@ const { url, title, image } = Astro.props;
   </a>
   <Button client:load>
     <a href={url} target="_blank" rel="noopener noreferrer">
-      Voir le projet
+      {t['project.viewProject']}
     </a>
   </Button>
 </div>
