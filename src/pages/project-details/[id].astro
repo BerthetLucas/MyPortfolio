@@ -31,11 +31,14 @@ if (!project) {
 }
 
 const projectImage = projectImages[id];
-const { title, technologies, url, description_details, skills } = project;
+const { title, technologies, url, description_details, skills, description } = project;
+
+const pageTitle = `${title} — Lucas Berthet, Développeur Web Lyon`;
+const pageDescription = description_details.slice(0, 155) + (description_details.length > 155 ? '…' : '');
 
 ---
 
-<Layout>
+<Layout title={pageTitle} description={pageDescription}>
   <section class="flex flex-col items-center justify-around min-h-screen mx-5 gap-10 mt-5">
     <ProjetDetailsHeader title={title} technologies={technologies} />
     <ProjectDetailsContent url={url} title={title} image={projectImage} />

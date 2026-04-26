@@ -13,7 +13,8 @@ export const ProjectCardFooter = ({ technologies }: ProjectCardFooterProps) => {
         <img
           key={technology}
           src={technology}
-          alt="Project Image"
+          alt=""
+          role="presentation"
           className="h-9 w-auto"
         />
       ))}
