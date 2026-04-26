@@ -14,8 +14,6 @@ import { MotionSection } from '../MotionComponents/MotionSection.tsx';
 export const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
 
-  console.log(PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID);
-
   const [isEmailSending, setIsEmailSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
