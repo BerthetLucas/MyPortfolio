@@ -22,9 +22,8 @@ export const AboutTab = () => (
         <h2 className="text-lg font-bold">Lucas Berthet</h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Développeur web curieux, en permanence en train d'explorer et de me
-          former aux nouvelles technologies. J'aime construire des projets qui
-          résolvent de vrais problèmes — avec soin pour le code et le design.
-          Autant à l'aise sur un backend robuste que sur une interface soignée.
+          former aux nouvelles technologies. Ces stacks sont mes spécialités,
+          mais j'aime explorer d'autres technologies à travers mes projets.
         </p>
         <span className="text-xs text-muted-foreground">
           <span aria-hidden="true">📍</span> Lyon, France
@@ -41,12 +40,12 @@ export const AboutTab = () => (
           <p className="text-xs text-muted-foreground">{category}</p>
           <div className="flex flex-wrap gap-2">
             {techs.map(tech => (
-              <span
+              <p
                 key={tech}
-                className="text-xs px-2 py-1 rounded border border-border/30 bg-muted/30"
+                className="px-4 py-2 bg-secondary text-secondary-foreground rounded-xs shadow-sm w-fit text-sm"
               >
                 {tech}
-              </span>
+              </p>
             ))}
           </div>
         </div>
