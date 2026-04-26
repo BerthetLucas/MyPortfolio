@@ -9,12 +9,14 @@ import wipImage from '@/assets/wip.png';
 import ProjetDetailsHeader from '@/components/ProjectDetails/ProjetDetailsHeader.astro';
 import ProjectDetailsContent from '@/components/ProjectDetails/ProjectDetailsContent.astro';
 import ProjectDetailsDescriptionCard from '@/components/ProjectDetails/ProjectDetailsDescriptionCard.astro';
+import biribiImage from '@/assets/biribiImage.png'
 
 const projectImages: { [key: string]: typeof questHubImage } = {
   '1': questHubImage,
   '2': sharingLinkImage,
   '3': claraVidoniImage,
   '4': wipImage,
+  '5': biribiImage, 
 };
 
 export function getStaticPaths() {

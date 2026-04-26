@@ -63,6 +63,19 @@
       ],
       "url": "https://budget-app-uwil.vercel.app/",
       "skills": ["Workflow IA", "Supabase"]
+    },
+    {
+      "id": "5",
+      "status": "done",
+      "title": "Biribi Tatoo Meeting",
+      "description": "Site Web pour convention de tatouage",
+      "description_details": "J'ai réalisé ce projet pour une convention de tatouage à Lyon. Les organisateurs souhaitaient un site web doté d'une identité visuelle forte, en parfaite adéquation avec leur univers. En collaboration directe avec l'un des organisateurs — lui-même tatoueur —, j'ai assuré l'intégration des différents assets fournis. Tout au long de cette mission, j'ai agi en tant qu'expert pour orienter les choix techniques et garantir une cohérence visuelle optimale sur tous les supports. En traduisant leurs exigences artistiques en solutions numériques concrètes, j'ai livré un outil de communication performant qui reflète l'âme de l'événement tout en respectant les standards actuels du web.",
+      "technologies": [
+        "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000",
+        "https://logowik.com/content/uploads/images/radix-ui3498.logowik.com.webp"
+      ],
+      "url": "https://www.biribitattoomeeting.com/",
+      "skills": ["Intégration Web", "SEO", "Conception"]
     }
   ]
 }
