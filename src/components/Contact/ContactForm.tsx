@@ -66,7 +66,7 @@ export const ContactForm = () => {
         </Button>
       </form>
       <Avatar className="w-50 md:w-60 mt-10">
-        <AvatarImage src={meImage.src} alt="" className="rounded-full" />
+        <AvatarImage src={meImage.src} alt="Photo de Lucas Berthet" className="rounded-full" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <Toaster richColors closeButton position="top-center" />
