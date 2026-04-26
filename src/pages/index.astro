@@ -2,9 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import { TabsToggle } from '@/components/TabsToggle.tsx';
 import Header from '@/layouts/Header.astro';
+import AboutSnippet from '@/components/About/AboutSnippet.astro';
 ---
 
 <Layout>
 	<Header />
-	<TabsToggle client:load />	
+	<div class="flex justify-center w-full">
+		<AboutSnippet />
+	</div>
+	<TabsToggle client:load />
 </Layout>
