@@ -1,16 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import meImage from '@/assets/me.jpeg';
 
 const stack = ['React', 'Next.js', 'TypeScript', 'NestJS'];
 ---
 
 <section class="flex items-start gap-5 px-6 py-7 border-b border-border/20 w-full max-w-3xl mx-auto flex-col sm:flex-row">
-  <img
-    src={meImage.src}
+  <Image
+    src={meImage}
     alt="Lucas Berthet"
-    class="w-18 h-18 rounded-full object-cover border-2 border-border/20 flex-shrink-0"
+    class="w-[72px] h-[72px] rounded-full object-cover border-2 border-border/20 flex-shrink-0"
     width={72}
     height={72}
+    loading="lazy"
   />
   <div class="flex flex-col gap-3">
     <p class="text-sm leading-relaxed text-muted-foreground">
