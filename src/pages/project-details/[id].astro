@@ -36,9 +36,25 @@ const { title, technologies, url, description_details, skills, description } = p
 const pageTitle = `${title} — Lucas Berthet, Développeur Web Lyon`;
 const pageDescription = description_details.slice(0, 155) + (description_details.length > 155 ? '…' : '');
 
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": title,
+  "description": description_details,
+  "url": url,
+  "author": {
+    "@type": "Person",
+    "name": "Lucas Berthet",
+    "url": "https://lucasberthet.io"
+  },
+  "applicationCategory": "WebApplication",
+  "operatingSystem": "Web"
+};
+
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} ogImage={projectImage.src}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(projectSchema)} />
   <section class="flex flex-col items-center justify-around min-h-screen mx-5 gap-10 mt-5">
     <ProjetDetailsHeader title={title} technologies={technologies} />
     <ProjectDetailsContent url={url} title={title} image={projectImage} />

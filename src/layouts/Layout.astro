@@ -8,15 +8,18 @@ import portfolioImage from '@/assets/portfolio.png';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title = 'Lucas Berthet — Développeur Web à Lyon | React, Node.js',
-  description = 'Lucas Berthet, développeur web basé à Lyon. Spécialisé en React, Next.js et Node.js. Découvrez mes projets web.',
+  description = 'Lucas Berthet, développeur web basé à Lyon. Spécialisé en React, Next.js et Node.js. Projets en React, TypeScript et Node.js.',
+  ogImage,
 } = Astro.props;
 
 const siteUrl = Astro.url.href;
-const imageUrl = new URL(portfolioImage.src, Astro.site).href; 
+const defaultImageUrl = new URL(portfolioImage.src, Astro.site).href;
+const imageUrl = ogImage ? new URL(ogImage, Astro.site).href : defaultImageUrl;
 ---
 
 <!doctype html>
@@ -69,6 +72,17 @@ const imageUrl = new URL(portfolioImage.src, Astro.site).href;
       "addressCountry": "FR"
     },
     "knowsAbout": ["React", "Next.js", "Node.js", "TypeScript", "Développement Web"]
+  })} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lucas Berthet — Portfolio",
+    "url": "https://lucasberthet.io",
+    "description": "Portfolio de Lucas Berthet, développeur web à Lyon spécialisé en React, Next.js et Node.js.",
+    "author": {
+      "@type": "Person",
+      "name": "Lucas Berthet"
+    }
   })} />
 
   <script>
