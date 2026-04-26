@@ -6,12 +6,14 @@ import questHubImage from '@/assets/questHub.png';
 import sharingLinkImage from '@/assets/sharing-link-transformer.png';
 import claraVidoniImage from '@/assets/claravidoni.png';
 import wipImage from '@/assets/wip.png';
+import biribiImage from '@/assets/biribiImage.png';
 
 const projectImages: { [key: string]: string } = {
   '1': questHubImage.src,
   '2': sharingLinkImage.src,
   '3': claraVidoniImage.src,
   '4': wipImage.src,
+  '5': biribiImage.src,
 };
 
 export const ProjectContainer = () => {
