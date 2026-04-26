@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ContactForm } from './Contact/ContactForm';
 import { ProjectContainer } from './Projects/ProjectContainer';
+import { AboutTab } from './About/AboutTab';
 import { useWebHaptics } from 'web-haptics/react';
 
 export const TabsToggle = () => {
@@ -25,6 +26,13 @@ export const TabsToggle = () => {
           Projets
         </TabsTrigger>
         <TabsTrigger
+          value="about"
+          className="text-xl"
+          onClick={handleTabChangeClick}
+        >
+          À propos
+        </TabsTrigger>
+        <TabsTrigger
           value="contact"
           className="text-xl"
           onClick={handleTabChangeClick}
@@ -34,6 +42,9 @@ export const TabsToggle = () => {
       </TabsList>
       <TabsContent value="projects" className="w-3/4">
         <ProjectContainer />
+      </TabsContent>
+      <TabsContent value="about" className="w-3/4">
+        <AboutTab />
       </TabsContent>
       <TabsContent value="contact" className="flex flex-col w-3/4">
         <ContactForm />
