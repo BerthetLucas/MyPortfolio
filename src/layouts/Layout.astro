@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = 'Lucas Berthet - Portfolio',
-  description = 'Découvrez mes projets et mes compétences en développement web',
+  title = 'Lucas Berthet — Développeur Web à Lyon | React, Node.js',
+  description = 'Lucas Berthet, développeur web basé à Lyon. Spécialisé en React, Next.js et Node.js. Découvrez mes projets web.',
 } = Astro.props;
 
 const siteUrl = Astro.url.href;
@@ -52,7 +52,25 @@ const imageUrl = new URL(portfolioImage.src, Astro.site).href;
   <link rel="canonical" href={siteUrl} />
   
   <Analytics />
-  
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lucas Berthet",
+    "jobTitle": "Développeur Web",
+    "url": "https://lucasberthet.io",
+    "sameAs": [
+      "https://github.com/BerthetLucas",
+      "https://www.linkedin.com/in/lucas-berthet-976657101/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lyon",
+      "addressCountry": "FR"
+    },
+    "knowsAbout": ["React", "Next.js", "Node.js", "TypeScript", "Développement Web"]
+  })} />
+
   <script>
     function applyStoredTheme() {
       const theme = (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
