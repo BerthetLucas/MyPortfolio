@@ -1,4 +1,5 @@
 import meImage from '@/assets/me.jpeg';
+import { MotionSection } from '../MotionComponents/MotionSection';
 
 const stack: Record<string, string[]> = {
   Frontend: ['React', 'Next.js', 'TypeScript', 'Astro', 'Tailwind'],
@@ -7,24 +8,27 @@ const stack: Record<string, string[]> = {
 };
 
 export const AboutTab = () => (
-  <div className="flex flex-col gap-8 py-6 max-w-2xl mx-auto">
+  <MotionSection className="flex flex-col gap-8 py-6 max-w-2xl mx-auto" delay={0.1}>
     <div className="flex gap-6 items-start flex-col sm:flex-row">
       <img
         src={meImage.src}
         alt="Lucas Berthet"
-        className="w-24 h-24 rounded-full object-cover border-2 border-border/20 flex-shrink-0"
+        className="w-24 h-24 rounded-full object-cover border-2 border-border/20 shrink-0"
         width={96}
         height={96}
+        loading="lazy"
       />
       <div className="flex flex-col gap-2">
         <h2 className="text-lg font-bold">Lucas Berthet</h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Développeur web curieux, en permanence en train d'explorer et de me former aux nouvelles
-          technologies. J'aime construire des projets qui résolvent de vrais problèmes — avec soin
-          pour le code et le design. Autant à l'aise sur un backend robuste que sur une interface
-          soignée.
+          Développeur web curieux, en permanence en train d'explorer et de me
+          former aux nouvelles technologies. J'aime construire des projets qui
+          résolvent de vrais problèmes — avec soin pour le code et le design.
+          Autant à l'aise sur un backend robuste que sur une interface soignée.
         </p>
-        <span className="text-xs text-muted-foreground">📍 Lyon, France</span>
+        <span className="text-xs text-muted-foreground">
+          <span aria-hidden="true">📍</span> Lyon, France
+        </span>
       </div>
     </div>
 
@@ -36,7 +40,7 @@ export const AboutTab = () => (
         <div key={category} className="flex flex-col gap-2">
           <p className="text-xs text-muted-foreground">{category}</p>
           <div className="flex flex-wrap gap-2">
-            {techs.map((tech) => (
+            {techs.map(tech => (
               <span
                 key={tech}
                 className="text-xs px-2 py-1 rounded border border-border/30 bg-muted/30"
@@ -48,5 +52,5 @@ export const AboutTab = () => (
         </div>
       ))}
     </div>
-  </div>
+  </MotionSection>
 );
