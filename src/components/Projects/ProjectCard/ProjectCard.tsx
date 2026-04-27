@@ -36,11 +36,15 @@ export const ProjectCard = ({
       className="block w-full max-w-3xl"
       onClick={handleProjectCardClick}
     >
-      <Card className="w-full transition-all duration-300 hover:shadow-lg md:flex md:flex-row hover:grayscale-0 hover:scale-102 cursor-pointer">
+      <Card className="relative overflow-hidden w-full transition-all duration-300 md:flex md:flex-row hover:grayscale-0 hover:scale-102 cursor-pointer border-card-border hover:bg-card-hover hover:shadow-card-hover">
+        <div
+          className="absolute inset-0 pointer-events-none rounded-xl hidden dark:block"
+          style={{ background: 'radial-gradient(ellipse at top right, rgba(231, 138, 83, 0.22) 0%, transparent 60%)' }}
+        />
         <div className="flex flex-1 flex-col justify-between gap-2">
           <CardHeader className="pt-6">
             <CardTitle className="text-xl font-bold">{title}</CardTitle>
-            <CardDescription className="text-sm">{description}</CardDescription>
+            <CardDescription className="text-sm text-card-description">{description}</CardDescription>
           </CardHeader>
           <ProjectCardFooter technologies={technologies} />
         </div>

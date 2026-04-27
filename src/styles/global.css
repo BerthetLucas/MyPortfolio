@@ -6,8 +6,12 @@
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.2101 0.0318 264.6645);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2101 0.0318 264.6645);
+  --card: #fdf0e8;
+  --card-foreground: #2e1a0e;
+  --card-border: #f0c9a8;
+  --card-description: #d87943;
+  --card-hover-bg: #fce8d5;
+  --card-hover-shadow: 0 8px 32px #d8794322;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2101 0.0318 264.6645);
   --primary: oklch(0.6716 0.1368 48.513);
@@ -67,8 +71,12 @@
 .dark {
   --background: oklch(0.1797 0.0043 308.1928);
   --foreground: oklch(0.8109 0 0);
-  --card: oklch(0.1822 0 0);
-  --card-foreground: oklch(0.8109 0 0);
+  --card: #527575;
+  --card-foreground: #ffffff;
+  --card-border: #5f8787;
+  --card-description: #c8d8d8;
+  --card-hover-bg: #5f8787;
+  --card-hover-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   --popover: oklch(0.1797 0.0043 308.1928);
   --popover-foreground: oklch(0.8109 0 0);
   --primary: oklch(0.7214 0.1337 49.9802);
@@ -129,6 +137,10 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-card-border: var(--card-border);
+  --color-card-description: var(--card-description);
+  --color-card-hover: var(--card-hover-bg);
+  --shadow-card-hover: var(--card-hover-shadow);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
