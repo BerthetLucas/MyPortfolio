@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.5",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-aspect-ratio": "^1.1.8",
     "@radix-ui/react-avatar": "^1.1.11",
