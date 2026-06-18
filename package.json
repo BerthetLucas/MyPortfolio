@@ -23,7 +23,7 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vercel/analytics": "^2.0.1",
-    "astro": "^6.4.7",
+    "astro": "^6.4.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
