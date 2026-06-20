@@ -76,15 +76,14 @@ export const BackgroundVideo = () => {
         fov={45}
         pixelDensity={1}
         pointerEvents="none"
-        envBasePath="/hdr/"
       >
         <ShaderGradient
           animate="on"
-          brightness={0.7}
+          brightness={0.8}
           cAzimuthAngle={270}
           cDistance={0.5}
           cPolarAngle={180}
-          cameraZoom={15.09}
+          cameraZoom={15.1}
           color1="#c46676"
           color2="#ff810a"
           color3="#cece48"
@@ -106,7 +105,7 @@ export const BackgroundVideo = () => {
           uAmplitude={3.2}
           uDensity={0.8}
           uFrequency={5.5}
-          uSpeed={0.4}
+          uSpeed={0.3}
           uStrength={0.3}
           uTime={0}
           wireframe={false}
