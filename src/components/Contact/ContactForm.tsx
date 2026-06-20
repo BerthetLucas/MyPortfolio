@@ -51,7 +51,10 @@ export const ContactForm = () => {
   };
 
   return (
-    <MotionSection delay={0.1} className="w-full flex flex-col items-center">
+    <MotionSection
+      delay={0.1}
+      className="w-full flex flex-col items-center 2xl:mt-50"
+    >
       <ContactText />
       <form
         className="flex flex-col items-center justify-center w-full md:w-3/4 mt-10 gap-6 md:gap-8"
@@ -66,7 +69,11 @@ export const ContactForm = () => {
         </Button>
       </form>
       <Avatar className="w-50 md:w-60 mt-10">
-        <AvatarImage src={meImage.src} alt="Photo de Lucas Berthet" className="rounded-full" />
+        <AvatarImage
+          src={meImage.src}
+          alt="Photo de Lucas Berthet"
+          className="rounded-full"
+        />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <Toaster richColors closeButton position="top-center" />

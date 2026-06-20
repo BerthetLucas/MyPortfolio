@@ -14,7 +14,7 @@ export const TabsToggle = () => {
   return (
     <Tabs
       defaultValue="projects"
-      className="flex w-full flex-col items-center justify-center min-h-screen scroll-mt-10 mt-5"
+      className="flex w-full flex-col items-center justify-center min-h-screen 2xl:min-h-[80vh] scroll-mt-10 mt-5 2xl:mt-20"
       id="tabs-toggle"
     >
       <TabsList>
@@ -43,7 +43,10 @@ export const TabsToggle = () => {
       <TabsContent value="projects" className="w-3/4">
         <ProjectContainer />
       </TabsContent>
-      <TabsContent value="about" className="w-3/4">
+      <TabsContent
+        value="about"
+        className="w-3/4 flex items-center justify-center"
+      >
         <AboutTab />
       </TabsContent>
       <TabsContent value="contact" className="flex flex-col w-3/4">
