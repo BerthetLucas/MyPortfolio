@@ -1,5 +1,3 @@
 {
-  "enabledPlugins": {
-    "searchfit-seo@claude-plugins-official": true
-  }
+  "enabledPlugins": {}
 }
