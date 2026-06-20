@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "1",
-      "status": "done",
+      "status": "hide",
       "title": "QuestHub",
       "description": "API pour une plateforme de création de jeux de rôle en ligne.",
       "description_details": "C'est mon plus gros projet back-end à ce jour. Il s'agit d'une API REST qui alimente un outils de gestion de jeux de rôle en ligne. J'ai essentiellement travaillé sur la partie authentification avec une connexion à Firebase. Ce projet a été l'occasion d'un travail collaboratif et la construction de pattern et de pratiques communes dans un repo collaboratif.",
@@ -52,7 +52,7 @@
     },
     {
       "id": "4",
-      "status": "wip",
+      "status": "done",
       "title": "Budget App",
       "description": "Production de code automatisée",
       "description_details": "Ce projet est une expérience autour de la création assistée par IA et de l'automatisation de tâches. Il m'a permis de développer un regard critique sur l'utilisation de l'IA dans la production de code : sans une revue attentive, la dette technique s'accumule rapidement. Au-delà de l'app elle-même, j'explore l'automatisation de workflows en ajoutant de la review IA pour merge automatiquement les mises à jours de versions Dependabot.",
@@ -63,6 +63,25 @@
       ],
       "url": "https://budget-app-uwil.vercel.app/",
       "skills": ["Workflow IA", "Supabase"]
+    },
+    {
+      "id": "5",
+      "status": "wip",
+      "title": "Geo Compass",
+      "description": "Référence de marques",
+      "description_details": "Ce projet full stack est une application web qui permet de suivre le référencement de marques dans les réponses de plusieurs LLM. Chaque jour un cron passe pour interroger différents modèles avec les prompts paramétrés par les utilisateurs. Les résultats sont stockés et mis en forme dans une interface simple. Un mode de démonstration est disponible pour essayer l'application.",
+      "technologies": [
+        "https://img.icons8.com/?size=100&id=9ESZMOeUioJS&format=png&color=000000",
+        "https://img.icons8.com/?size=100&id=r2OarXWQc7B6&format=png&color=000000"
+      ],
+      "url": "https://geo-compass-front-end.vercel.app/fr",
+      "skills": [
+        "FullStack",
+        "Authentication",
+        "Service IA",
+        "Drizzle",
+        "Recharts"
+      ]
     }
   ]
 }
