@@ -1,5 +1,6 @@
 ---
 import Footer from './Footer.astro';
+import PageLoader from '@/components/PageLoader.astro';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro';
 import '../styles/global.css';
@@ -105,6 +106,7 @@ const imageUrl = ogImage ? new URL(ogImage, Astro.site).href : defaultImageUrl;
 </head>
 <body>
 <ClientRouter />
+<PageLoader />
 <slot />
 <Footer />
 </body>
