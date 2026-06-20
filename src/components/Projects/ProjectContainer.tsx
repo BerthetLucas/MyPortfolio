@@ -5,13 +5,15 @@ import projects from '@/data/projects.json';
 import questHubImage from '@/assets/questHub.png';
 import sharingLinkImage from '@/assets/sharing-link-transformer.png';
 import claraVidoniImage from '@/assets/claravidoni.png';
-import wipImage from '@/assets/wip.png';
+import budgetAppImage from '@/assets/budget.png';
+import geoCompassImage from '@/assets/geocompass.png';
 
 const projectImages: { [key: string]: string } = {
   '1': questHubImage.src,
   '2': sharingLinkImage.src,
   '3': claraVidoniImage.src,
-  '4': wipImage.src,
+  '4': budgetAppImage.src,
+  '5': geoCompassImage.src,
 };
 
 export const ProjectContainer = () => {
