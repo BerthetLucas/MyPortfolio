@@ -89,7 +89,7 @@ export const BackgroundVideo = () => {
           color3="#cece48"
           envPreset="city"
           grain="on"
-          lightType="env"
+          lightType="3d"
           positionX={-0.1}
           positionY={0}
           positionZ={0}
