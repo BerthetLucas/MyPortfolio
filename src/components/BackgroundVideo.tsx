@@ -30,8 +30,6 @@ export const BackgroundVideo = () => {
           fov={45}
           pixelDensity={1}
           pointerEvents="none"
-          powerPreference="low-power"
-          preserveDrawingBuffer={false}
         >
           <ShaderGradient
             animate="on"
@@ -78,8 +76,6 @@ export const BackgroundVideo = () => {
         fov={45}
         pixelDensity={1}
         pointerEvents="none"
-        powerPreference="low-power"
-        preserveDrawingBuffer={false}
       >
         <ShaderGradient
           animate="on"
