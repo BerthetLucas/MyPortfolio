@@ -76,6 +76,7 @@ export const BackgroundVideo = () => {
         fov={45}
         pixelDensity={1}
         pointerEvents="none"
+        envBasePath="/hdr/"
       >
         <ShaderGradient
           animate="on"
@@ -89,7 +90,7 @@ export const BackgroundVideo = () => {
           color3="#cece48"
           envPreset="city"
           grain="on"
-          lightType="3d"
+          lightType="env"
           positionX={-0.1}
           positionY={0}
           positionZ={0}
