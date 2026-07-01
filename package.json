@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.7",
+    "@astrojs/react": "^6.0.0",
     "@astrojs/sitemap": "^3.7.3",
     "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-avatar": "^1.2.1",
