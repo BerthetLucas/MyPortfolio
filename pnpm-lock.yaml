@@ -33,8 +33,8 @@ importers:
         specifier: ^1.2.16
         version: 1.2.16(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@react-three/fiber':
-        specifier: ^9.7.0
-        version: 9.7.0(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.186.0)
+        specifier: ^9.8.1
+        version: 9.8.1(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.186.0)
       '@shadergradient/react':
         specifier: ^2.4.20
         version: 2.4.20(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1014,15 +1014,15 @@ packages:
   '@radix-ui/rect@1.1.3':
     resolution: {integrity: sha512-JtyZR+mqgBibTo8xea3B6ZRmzZiM/YeVBtUkas6zMuXjAlfIFIW2FgqeM9eLyvEaYX66vr6DJMK+4U6LV0KhNw==}
 
-  '@react-three/fiber@9.7.0':
-    resolution: {integrity: sha512-EWm9FwcaOZQu/ExFW5rggoCMM1NJet5YbxVxKaOE+KSncrjU0Wx7017qSyGFvupviK89nMYGCWU3BIK4dI1clw==}
+  '@react-three/fiber@9.8.1':
+    resolution: {integrity: sha512-GbNP4r6F/gpclFKkLGHzXcuwFWAzLyKsmrQGcDuwK3wQnwLH6F1TfGtEYjHy8OQoGsajwT19B9jtVLLjjfH09w==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
       expo-file-system: '>=11.0'
       expo-gl: '>=11.0'
-      react: '>=19 <19.3'
-      react-dom: '>=19 <19.3'
+      react: '>=19 <19.4'
+      react-dom: '>=19 <19.4'
       react-native: '>=0.78'
       three: '>=0.156'
     peerDependenciesMeta:
@@ -1709,8 +1709,8 @@ packages:
     resolution: {integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==}
     engines: {node: '>=12'}
 
-  its-fine@2.0.0:
-    resolution: {integrity: sha512-KLViCmWx94zOvpLwSlsx6yOCeMhZYaxrJV87Po5k/FoZzcPSahvK5qJ7fYhS61sZi5ikmh2S3Hz55A2l3U69ng==}
+  its-fine@2.1.1:
+    resolution: {integrity: sha512-C5ZoVkeqSt0Aje0tzESO+iT/EQpNFNL39GkP7mCACtoZUFD6GcyerFCr6kp0ZtiII4W9HoYkY48Soy5xE/uHKw==}
     peerDependencies:
       react: ^19.0.0
 
@@ -2108,6 +2108,9 @@ packages:
 
   scheduler@0.27.0:
     resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
+
+  scheduler@0.28.0:
+    resolution: {integrity: sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -3243,16 +3246,16 @@ snapshots:
 
   '@radix-ui/rect@1.1.3': {}
 
-  '@react-three/fiber@9.7.0(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.186.0)':
+  '@react-three/fiber@9.8.1(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.186.0)':
     dependencies:
       '@babel/runtime': 7.29.7
       '@types/webxr': 0.5.24
       base64-js: 1.5.1
       buffer: 6.0.3
-      its-fine: 2.0.0(@types/react@19.2.18)(react@19.2.8)
+      its-fine: 2.1.1(@types/react@19.2.18)(react@19.2.8)
       react: 19.2.8
       react-use-measure: 2.1.7(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      scheduler: 0.27.0
+      scheduler: 0.28.0
       suspend-react: 0.1.3(react@19.2.8)
       three: 0.186.0
       use-sync-external-store: 1.6.0(react@19.2.8)
@@ -3916,7 +3919,7 @@ snapshots:
 
   is-plain-obj@4.1.0: {}
 
-  its-fine@2.0.0(@types/react@19.2.18)(react@19.2.8):
+  its-fine@2.1.1(@types/react@19.2.18)(react@19.2.8):
     dependencies:
       '@types/react-reconciler': 0.28.9(@types/react@19.2.18)
       react: 19.2.8
@@ -4263,6 +4266,8 @@ snapshots:
   sax@1.6.1: {}
 
   scheduler@0.27.0: {}
+
+  scheduler@0.28.0: {}
 
   semver@6.3.1: {}
 
