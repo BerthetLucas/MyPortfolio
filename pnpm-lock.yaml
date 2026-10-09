@@ -15,8 +15,8 @@ importers:
         specifier: ^3.7.4
         version: 3.7.4
       '@emailjs/browser':
-        specifier: ^4.4.1
-        version: 4.4.1
+        specifier: ^5.0.2
+        version: 5.0.2
       '@radix-ui/react-avatar':
         specifier: ^1.2.7
         version: 1.2.7(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -300,8 +300,8 @@ packages:
   '@dimforge/rapier3d-compat@0.12.0':
     resolution: {integrity: sha512-uekIGetywIgopfD97oDL5PfeezkFpNhwlzlaEYNOA0N6ghdsOvh/HYjSMek5Q2O1PYvRSDFcqFVJl4r4ZBwOow==}
 
-  '@emailjs/browser@4.4.1':
-    resolution: {integrity: sha512-DGSlP9sPvyFba3to2A50kDtZ+pXVp/0rhmqs2LmbMS3I5J8FSOgLwzY2Xb4qfKlOVHh29EAutLYwe5yuEZmEFg==}
+  '@emailjs/browser@5.0.2':
+    resolution: {integrity: sha512-yhfjhO6q6843CXUxZcJ5iw+HLtLvNbdt0wx/cJ6upREmD/biKoB7hAAO1HnYqhSH7owIUgwIbZOxSOblZyN3cQ==}
     engines: {node: '>=14.0.0'}
 
   '@emnapi/core@1.11.1':
@@ -2535,7 +2535,7 @@ snapshots:
 
   '@dimforge/rapier3d-compat@0.12.0': {}
 
-  '@emailjs/browser@4.4.1': {}
+  '@emailjs/browser@5.0.2': {}
 
   '@emnapi/core@1.11.1':
     dependencies:
