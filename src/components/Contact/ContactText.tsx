@@ -11,6 +11,7 @@ export const ContactText = () => {
             href="https://www.kolecto.fr/"
             target="_blank"
             className="text-[#2c46fd] font-bold hover:opacity-50"
+            rel="noopener"
           >
             Kolecto
           </a>

@@ -1,22 +1,22 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import projects from '@/data/projects.json';
-import { BackButton } from '@/components/ProjectDetails/BackButton';
+import budgetAppImage from '@/assets/budget.png';
+import claraVidoniImage from '@/assets/claravidoni.png';
+import geoCompassImage from '@/assets/geocompass.png';
 import questHubImage from '@/assets/questHub.png';
 import sharingLinkImage from '@/assets/sharing-link-transformer.png';
-import claraVidoniImage from '@/assets/claravidoni.png';
-import budgetAppImage from '@/assets/budget.png';
-import ProjetDetailsHeader from '@/components/ProjectDetails/ProjetDetailsHeader.astro';
+import { BackButton } from '@/components/ProjectDetails/BackButton';
 import ProjectDetailsContent from '@/components/ProjectDetails/ProjectDetailsContent.astro';
 import ProjectDetailsDescriptionCard from '@/components/ProjectDetails/ProjectDetailsDescriptionCard.astro';
-import geoCompassImage from '@/assets/geocompass.png';
+import ProjetDetailsHeader from '@/components/ProjectDetails/ProjetDetailsHeader.astro';
+import projects from '@/data/projects.json';
+import Layout from '@/layouts/Layout.astro';
 
 const projectImages: { [key: string]: typeof questHubImage } = {
   '1': questHubImage,
   '2': sharingLinkImage,
   '3': claraVidoniImage,
-  '4': budgetAppImage, 
-  '5': geoCompassImage
+  '4': budgetAppImage,
+  '5': geoCompassImage,
 };
 
 export function getStaticPaths() {
@@ -33,34 +33,48 @@ if (!project) {
 }
 
 const projectImage = projectImages[id];
-const { title, technologies, url, description_details, skills, description } = project;
+const { title, technologies, url, description_details, skills } = project;
 
 const pageTitle = `${title} — Lucas Berthet, Développeur Web Lyon`;
-const pageDescription = description_details.slice(0, 155) + (description_details.length > 155 ? '…' : '');
+const pageDescription =
+  description_details.slice(0, 155) +
+  (description_details.length > 155 ? '…' : '');
 
 const projectSchema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": title,
-  "description": description_details,
-  "url": url,
-  "author": {
-    "@type": "Person",
-    "name": "Lucas Berthet",
-    "url": "https://lucasberthet.io"
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: title,
+  description: description_details,
+  url: url,
+  author: {
+    '@type': 'Person',
+    name: 'Lucas Berthet',
+    url: 'https://lucasberthet.io',
   },
-  "applicationCategory": "WebApplication",
-  "operatingSystem": "Web"
+  applicationCategory: 'WebApplication',
+  operatingSystem: 'Web',
 };
-
 ---
 
-<Layout title={pageTitle} description={pageDescription} ogImage={projectImage.src}>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(projectSchema)} />
-  <section class="flex flex-col items-center justify-around min-h-screen mx-5 gap-10 mt-5">
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={projectImage.src}
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(projectSchema)}
+  />
+  <section
+    class="flex flex-col items-center justify-around min-h-screen mx-5 gap-10 mt-5"
+  >
     <ProjetDetailsHeader title={title} technologies={technologies} />
     <ProjectDetailsContent url={url} title={title} image={projectImage} />
-    <ProjectDetailsDescriptionCard description_details={description_details} skills={skills} />
+    <ProjectDetailsDescriptionCard
+      description_details={description_details}
+      skills={skills}
+    />
     <BackButton client:load showOnMobile />
   </section>
 </Layout>

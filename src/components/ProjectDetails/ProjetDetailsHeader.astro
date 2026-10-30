@@ -1,6 +1,6 @@
 ---
-import { BackButton } from './BackButton';
 import TypographyH1 from '../Typographie/TypographieH1.astro';
+import { BackButton } from './BackButton';
 import TechItems from './TechItems.astro';
 
 interface Props {
@@ -12,9 +12,9 @@ const { title, technologies } = Astro.props;
 ---
 
 <div class="w-full flex items-center">
-    <BackButton client:load />
-    <div class="flex-1 flex justify-center flex-col items-center gap-5">
-      <TypographyH1>{title}</TypographyH1>
-      <TechItems technologies={technologies} />
-    </div>
+  <BackButton client:load />
+  <div class="flex-1 flex justify-center flex-col items-center gap-5">
+    <TypographyH1>{title}</TypographyH1>
+    <TechItems technologies={technologies} />
   </div>
+</div>

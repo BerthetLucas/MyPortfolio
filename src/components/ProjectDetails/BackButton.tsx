@@ -1,6 +1,6 @@
-import { Button } from '../ui/button';
-import { ArrowLeftIcon } from '../Icon/ArrowLeftIcon';
 import { useWebHaptics } from 'web-haptics/react';
+import { ArrowLeftIcon } from '../Icon/ArrowLeftIcon';
+import { Button } from '../ui/button';
 
 interface BackButtonProps {
   showOnMobile?: boolean;

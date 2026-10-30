@@ -119,7 +119,7 @@ portfolioLucasBerthet/
 ├── components.json              # Configuration shadcn/ui
 ├── package.json                 # Dépendances
 ├── tsconfig.json                # Configuration TypeScript
-└── .prettierrc                  # Configuration Prettier
+└── biome.json                  # Configuration Biome (lint + format)
 ```
 
 ## 🚦 Commandes disponibles

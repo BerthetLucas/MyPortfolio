@@ -1,8 +1,8 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { useWebHaptics } from 'web-haptics/react';
+import { AboutTab } from './About/AboutTab';
 import { ContactForm } from './Contact/ContactForm';
 import { ProjectContainer } from './Projects/ProjectContainer';
-import { AboutTab } from './About/AboutTab';
-import { useWebHaptics } from 'web-haptics/react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 
 export const TabsToggle = () => {
   const { trigger } = useWebHaptics();

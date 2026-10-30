@@ -1,8 +1,8 @@
 ---
-import Footer from './Footer.astro';
-import PageLoader from '@/components/PageLoader.astro';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@vercel/analytics/astro';
+import PageLoader from '@/components/PageLoader.astro';
+import Footer from './Footer.astro';
 import '../styles/global.css';
 import portfolioImage from '@/assets/portfolio.png';
 
@@ -25,70 +25,95 @@ const imageUrl = ogImage ? new URL(ogImage, Astro.site).href : defaultImageUrl;
 
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="generator" content={Astro.generator} />
-  
-  <!-- SEO & Meta Tags -->
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-  
-  <!-- OpenGraph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={imageUrl} />
-  <meta property="og:url" content={siteUrl} />
-  <meta property="og:locale" content="fr_FR" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={imageUrl} />
-  
-  <!-- Canonical -->
-  <link rel="canonical" href={siteUrl} />
-  
-  <Analytics />
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="generator" content={Astro.generator}>
 
-  <script is:inline type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Lucas Berthet",
-    "jobTitle": "Développeur Web",
-    "url": "https://lucasberthet.io",
-    "sameAs": [
-      "https://github.com/BerthetLucas",
-      "https://www.linkedin.com/in/lucas-berthet-976657101/"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Lyon",
-      "addressCountry": "FR"
-    },
-    "knowsAbout": ["React", "Next.js", "Node.js", "TypeScript", "Développement Web"]
-  })} />
-  <script is:inline type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Lucas Berthet — Portfolio",
-    "url": "https://lucasberthet.io",
-    "description": "Portfolio de Lucas Berthet, développeur web à Lyon spécialisé en React, Next.js et Node.js.",
-    "author": {
-      "@type": "Person",
-      "name": "Lucas Berthet"
-    }
-  })} />
+    <!-- SEO & Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    >
+    <meta
+      name="theme-color"
+      content="#000000"
+      media="(prefers-color-scheme: dark)"
+    >
 
-  <script>
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={imageUrl}>
+    <meta property="og:url" content={siteUrl}>
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={imageUrl}>
+
+    <!-- Canonical -->
+    <link rel="canonical" href={siteUrl}>
+
+    <Analytics />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Lucas Berthet',
+        jobTitle: 'Développeur Web',
+        url: 'https://lucasberthet.io',
+        sameAs: [
+          'https://github.com/BerthetLucas',
+          'https://www.linkedin.com/in/lucas-berthet-976657101/',
+        ],
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Lyon',
+          addressCountry: 'FR',
+        },
+        knowsAbout: [
+          'React',
+          'Next.js',
+          'Node.js',
+          'TypeScript',
+          'Développement Web',
+        ],
+      })}
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Lucas Berthet — Portfolio',
+        url: 'https://lucasberthet.io',
+        description:
+          'Portfolio de Lucas Berthet, développeur web à Lyon spécialisé en React, Next.js et Node.js.',
+        author: {
+          '@type': 'Person',
+          name: 'Lucas Berthet',
+        },
+      })}
+    />
+
+    <script>
     function applyStoredTheme() {
-      const theme = (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
 
       document.documentElement.classList.toggle('dark', theme === 'dark');
       document.documentElement.setAttribute('data-theme', theme);
@@ -98,16 +123,21 @@ const imageUrl = ogImage ? new URL(ogImage, Astro.site).href : defaultImageUrl;
 
     document.addEventListener('astro:page-load', applyStoredTheme);
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e: MediaQueryListEvent) => {
-      document.documentElement.classList.toggle('dark', e.matches);
-      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-    });
-  </script>
-</head>
-<body>
-<ClientRouter />
-<PageLoader />
-<slot />
-<Footer />
-</body>
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', (e: MediaQueryListEvent) => {
+        document.documentElement.classList.toggle('dark', e.matches);
+        document.documentElement.setAttribute(
+          'data-theme',
+          e.matches ? 'dark' : 'light'
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <ClientRouter />
+    <PageLoader />
+    <slot />
+    <Footer />
+  </body>
 </html>
