@@ -1,6 +1,6 @@
 ---
-import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import TypographyP from '../Typographie/TypographieP.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import SkillsCard from './SkillsCard.astro';
 
 interface Props {
@@ -21,9 +21,7 @@ const { description_details, skills } = Astro.props;
     </div>
     <h3 class="font-bold">Compétences</h3>
     <div class="flex flex-wrap gap-2">
-      {skills.map(skill => (
-        <SkillsCard skill={skill} />
-      ))}
+      {skills.map(skill => <SkillsCard skill={skill} />)}
     </div>
   </CardContent>
 </Card>

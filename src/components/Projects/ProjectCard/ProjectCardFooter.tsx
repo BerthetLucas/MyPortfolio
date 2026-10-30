@@ -10,13 +10,7 @@ export const ProjectCardFooter = ({ technologies }: ProjectCardFooterProps) => {
     <CardFooter className="flex items-center gap-2 my-2">
       <CogIcon className="h-8 w-auto" />
       {technologies.map(technology => (
-        <img
-          key={technology}
-          src={technology}
-          alt=""
-          role="presentation"
-          className="h-9 w-auto"
-        />
+        <img key={technology} src={technology} alt="" className="h-9 w-auto" />
       ))}
     </CardFooter>
   );

@@ -1,15 +1,15 @@
+import emailjs from '@emailjs/browser';
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+import { useRef, useState } from 'react';
+import { Toaster, toast } from 'sonner';
+import meImage from '@/assets/me.jpeg';
+import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from '@/config/env';
+import { MotionSection } from '../MotionComponents/MotionSection.tsx';
+import { Button } from '../ui/button';
+import { Spinner } from '../ui/spinner';
+import { ContactText } from './ContactText.tsx';
 import { EmailInput } from './EmailInput';
 import { MessageInput } from './MessageInput';
-import { Button } from '../ui/button';
-import { toast, Toaster } from 'sonner';
-import { ContactText } from './ContactText.tsx';
-import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react';
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from '@/config/env';
-import { Spinner } from '../ui/spinner';
-import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
-import meImage from '@/assets/me.jpeg';
-import { MotionSection } from '../MotionComponents/MotionSection.tsx';
 
 export const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -43,8 +43,7 @@ export const ContactForm = () => {
       toast.success('Message envoyé avec succès');
       setIsEmailSending(false);
       form.current.reset();
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
+    } catch {
       toast.error("Erreur d'envoie");
       setIsEmailSending(false);
     }

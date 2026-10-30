@@ -1,5 +1,5 @@
-import { Textarea } from '../ui/textarea';
 import { Label } from '../ui/label';
+import { Textarea } from '../ui/textarea';
 
 export const MessageInput = () => {
   return (

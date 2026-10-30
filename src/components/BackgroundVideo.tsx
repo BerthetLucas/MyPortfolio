@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
+import { useEffect, useState } from 'react';
 
 export const BackgroundVideo = () => {
   const [isDark, setIsDark] = useState(false);

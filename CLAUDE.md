@@ -12,9 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 pnpm dev        # dev server (localhost:4321)
 pnpm build      # production build
 pnpm preview    # preview build
+pnpm check      # Biome lint + format check
+pnpm fix        # Biome apply safe fixes + format
 ```
 
-No test runner. No lint script. Prettier via `.prettierrc`.
+No test runner. Lint + format via Biome (`biome.json`).
 
 ## Architecture
 

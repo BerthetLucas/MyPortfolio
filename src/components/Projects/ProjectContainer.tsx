@@ -1,12 +1,12 @@
+import budgetAppImage from '@/assets/budget.png';
+import claraVidoniImage from '@/assets/claravidoni.png';
+import geoCompassImage from '@/assets/geocompass.png';
+import questHubImage from '@/assets/questHub.png';
+import sharingLinkImage from '@/assets/sharing-link-transformer.png';
+import projects from '@/data/projects.json';
 import { MotionSection } from '../MotionComponents/MotionSection';
 import { ProjectCard } from './ProjectCard/ProjectCard';
 import { WIPProjectCard } from './ProjectCard/WIPProjectCard';
-import projects from '@/data/projects.json';
-import questHubImage from '@/assets/questHub.png';
-import sharingLinkImage from '@/assets/sharing-link-transformer.png';
-import claraVidoniImage from '@/assets/claravidoni.png';
-import budgetAppImage from '@/assets/budget.png';
-import geoCompassImage from '@/assets/geocompass.png';
 
 const projectImages: { [key: string]: string } = {
   '1': questHubImage.src,
